@@ -4,12 +4,6 @@ import { Button } from "@/components/ui/button";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
 
 const galleryImages = [
-  "/WhatsApp Image 2025-10-27 at 16.40.01 (1).jpeg",
-  "/WhatsApp Image 2025-10-27 at 16.40.04 (1).jpeg",
-  "/WhatsApp Image 2025-10-27 at 16.40.04 (2).jpeg",
-  "/WhatsApp Image 2025-10-27 at 16.40.24.jpeg",
-  "/WhatsApp Image 2025-10-27 at 16.40.28 (2).jpeg",
-  "/WhatsApp Image 2025-10-27 at 16.40.46 (1).jpeg",
   "/WhatsApp Image 2025-10-27 at 16.40.46 (2).jpeg",
   "/WhatsApp Image 2025-10-27 at 16.40.47 (1).jpeg",
   "/WhatsApp Image 2025-10-27 at 16.40.47.jpeg",
@@ -18,7 +12,34 @@ const galleryImages = [
   "/WhatsApp Image 2025-10-27 at 16.41.09 (1).jpeg",
   "/WhatsApp Image 2025-10-27 at 16.41.09.jpeg",
   "/WhatsApp Image 2025-10-27 at 16.41.10.jpeg",
+  "/WhatsApp Image 2025-10-27 at 16.40.52.jpeg",
+  "/WhatsApp Image 2025-10-27 at 16.40.48.jpeg",
+  "/WhatsApp Image 2025-10-27 at 16.40.26.jpeg",
+  "/WhatsApp Image 2025-10-27 at 16.40.26 (1).jpeg",
 ];
+
+// Geometric shapes for background animation
+const AnimatedShapes = () => {
+  return (
+    <div className="absolute inset-0 overflow-hidden pointer-events-none">
+      {[...Array(20)].map((_, i) => (
+        <div
+          key={i}
+          className="absolute w-32 h-32 opacity-[0.03]"
+          style={{
+            left: `${Math.random() * 100}%`,
+            top: `${Math.random() * 100}%`,
+            animation: `float ${15 + Math.random() * 10}s ease-in-out infinite`,
+            animationDelay: `${Math.random() * 5}s`,
+            transform: `rotate(${Math.random() * 360}deg)`,
+          }}
+        >
+          <div className={`w-full h-full ${i % 3 === 0 ? 'bg-primary' : i % 3 === 1 ? 'bg-accent' : 'bg-white'}`} />
+        </div>
+      ))}
+    </div>
+  );
+};
 
 const Gallery = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -94,15 +115,25 @@ const Gallery = () => {
   };
 
   const getTransform = (position: number) => {
-    const baseRotation = position * 12;
-    const baseScale = 1 - position * 0.15;
-    const baseTranslateX = position * 20;
-    const baseTranslateZ = position * -50;
+    const baseRotation = position * 15;
+    const baseScale = 1 - position * 0.12;
+    const baseTranslateX = position * 25;
+    const baseTranslateZ = position * -80;
+    const opacity = position > 3 ? 0 : 1 - position * 0.15;
     return {
       rotate: baseRotation,
       scale: baseScale,
       translateX: baseTranslateX,
       translateZ: baseTranslateZ,
+      opacity,
+    };
+  };
+
+  const getShadowStyle = (position: number) => {
+    if (position === 0) return {}; // No shadow for front card
+    const shadowIntensity = position * 0.4;
+    return {
+      filter: `drop-shadow(-${30 + position * 20}px 0 ${40 + position * 30}px rgba(0, 0, 0, ${0.3 + shadowIntensity}))`,
     };
   };
 
@@ -110,13 +141,29 @@ const Gallery = () => {
     <>
       <section
         id="gallery"
-        className="relative py-24 bg-gradient-to-br from-[hsl(228,84%,5%)] to-[hsl(228,60%,8%)] overflow-hidden border-b-2 border-border"
+        className="relative py-24 bg-gradient-to-br from-[hsl(228,84%,5%)] via-[hsl(228,70%,7%)] to-[hsl(228,60%,8%)] overflow-hidden border-b-2 border-border"
       >
-        {/* Background Animation */}
-        <div className="absolute inset-0 opacity-30">
-          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/20 rounded-full blur-3xl animate-float" />
-          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-accent/20 rounded-full blur-3xl animate-float" style={{ animationDelay: '1s' }} />
+        {/* Animated Background Shapes */}
+        <AnimatedShapes />
+        
+        {/* Enhanced Background Animation */}
+        <div className="absolute inset-0">
+          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/15 rounded-full blur-3xl animate-float" />
+          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-accent/15 rounded-full blur-3xl animate-float" style={{ animationDelay: '2s' }} />
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-primary/5 rounded-full blur-3xl animate-float" style={{ animationDelay: '4s' }} />
         </div>
+
+        {/* Grid Pattern Overlay */}
+        <div 
+          className="absolute inset-0 opacity-[0.02]"
+          style={{
+            backgroundImage: `
+              linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px)
+            `,
+            backgroundSize: '50px 50px',
+          }}
+        />
 
         <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
           {/* Section Header */}
@@ -134,27 +181,42 @@ const Gallery = () => {
 
           {/* 3D Carousel */}
           <div className="mb-8" onTouchStart={handleTouchStart} onTouchMove={handleTouchMove} onTouchEnd={handleTouchEnd}>
-            <div className="relative h-[500px] perspective-1000 flex items-center justify-center">
+            <div className="relative h-[550px] perspective-1000 flex items-center justify-center">
               {getVisibleImages().map(({ index, url }, position) => {
-                const { rotate, scale, translateX, translateZ } = getTransform(position);
+                const { rotate, scale, translateX, translateZ, opacity } = getTransform(position);
+                const shadowStyle = getShadowStyle(position);
+                const isFrontCard = position === 0;
+                
                 return (
                   <div
                     key={`${index}-${position}`}
-                    className="absolute cursor-pointer transition-all duration-500"
+                    className="absolute cursor-pointer transition-all duration-700 ease-out"
                     style={{
                       transform: `translateX(${translateX}px) translateZ(${translateZ}px) scale(${scale}) rotateY(${rotate}deg)`,
-                      opacity: position > 3 ? 0 : 1,
+                      opacity: opacity,
                       zIndex: 5 - position,
+                      transformStyle: 'preserve-3d',
+                      ...shadowStyle,
                     }}
                     onClick={() => openLightbox(index)}
                   >
-                    <div className="w-80 h-96 rounded-2xl overflow-hidden shadow-2xl hover:shadow-[0_20px_80px_rgba(99,102,241,0.4)] transition-all duration-300 hover:scale-105">
-                      <img
-                        src={url}
-                        alt={`Gallery ${index + 1}`}
-                        className="w-full h-full object-cover"
-                        loading="lazy"
-                      />
+                    <div className={`w-80 h-96 rounded-2xl overflow-hidden transition-all duration-700 ease-out ${
+                      isFrontCard 
+                        ? 'shadow-[0_0_60px_rgba(99,102,241,0.6),0_30px_90px_rgba(0,0,0,0.5)] hover:shadow-[0_0_100px_rgba(99,102,241,0.8),0_40px_120px_rgba(0,0,0,0.7)]' 
+                        : 'shadow-[0_0_80px_rgba(0,0,0,0.8)]'
+                    } hover:scale-105`}>
+                      <div className="w-full h-full relative group">
+                        {/* Gradient overlays for depth */}
+                        <div className="absolute inset-0 bg-gradient-to-br from-white/0 via-transparent to-black/20 pointer-events-none" />
+                        <div className={`absolute -inset-0.5 rounded-2xl blur ${isFrontCard ? 'bg-primary/20' : 'bg-white/5'} pointer-events-none`} />
+                        
+                        <img
+                          src={url}
+                          alt={`Gallery ${index + 1}`}
+                          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                          loading="lazy"
+                        />
+                      </div>
                     </div>
                   </div>
                 );
@@ -162,20 +224,20 @@ const Gallery = () => {
             </div>
 
             {/* Navigation Arrows */}
-            <div className="flex justify-center gap-4 mt-8">
+            <div className="flex justify-center gap-6 mt-12">
               <Button
                 onClick={() => handleSwipe("right")}
-                className="w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/20"
+                className="w-14 h-14 rounded-full bg-gradient-to-r from-primary/20 to-accent/20 hover:from-primary/40 hover:to-accent/40 backdrop-blur-md border-2 border-primary/30 hover:border-primary/60 shadow-[0_10px_30px_rgba(99,102,241,0.3)] hover:shadow-[0_15px_40px_rgba(99,102,241,0.5)] transition-all duration-300 group"
                 size="icon"
               >
-                <ChevronLeft className="w-6 h-6 text-white" />
+                <ChevronLeft className="w-7 h-7 text-white group-hover:translate-x-1 transition-transform duration-300" />
               </Button>
               <Button
                 onClick={() => handleSwipe("left")}
-                className="w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/20"
+                className="w-14 h-14 rounded-full bg-gradient-to-r from-primary/20 to-accent/20 hover:from-primary/40 hover:to-accent/40 backdrop-blur-md border-2 border-primary/30 hover:border-primary/60 shadow-[0_10px_30px_rgba(99,102,241,0.3)] hover:shadow-[0_15px_40px_rgba(99,102,241,0.5)] transition-all duration-300 group"
                 size="icon"
               >
-                <ChevronRight className="w-6 h-6 text-white" />
+                <ChevronRight className="w-7 h-7 text-white group-hover:-translate-x-1 transition-transform duration-300" />
               </Button>
             </div>
           </div>
