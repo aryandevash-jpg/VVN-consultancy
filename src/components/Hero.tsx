@@ -123,33 +123,33 @@ const Hero = () => {
               </Button>
             </div>
 
-            {/* Quick Stats */}
+            {/* Founder Stats */}
             <div className="flex flex-wrap gap-8 pt-8">
               <div className="flex items-center gap-3">
-                <Users className="w-8 h-8 text-primary" />
+                <Award className="w-8 h-8 text-primary" />
                 <div>
-                  <div className="text-2xl font-black text-white">500+</div>
-                  <div className="text-sm text-white/60">Students</div>
+                  <div className="text-2xl font-black text-white">12+</div>
+                  <div className="text-sm text-white/60">Years Experience</div>
                 </div>
               </div>
               <div className="flex items-center gap-3">
-                <TrendingUp className="w-8 h-8 text-accent" />
+                <Users className="w-8 h-8 text-accent" />
                 <div>
-                  <div className="text-2xl font-black text-white">95%</div>
+                  <div className="text-2xl font-black text-white">3,200+</div>
+                  <div className="text-sm text-white/60">Traders Mentored</div>
+                </div>
+              </div>
+              <div className="flex items-center gap-3">
+                <TrendingUp className="w-8 h-8 text-[hsl(145,80%,42%)]" />
+                <div>
+                  <div className="text-2xl font-black text-white">89%</div>
                   <div className="text-sm text-white/60">Success Rate</div>
-                </div>
-              </div>
-              <div className="flex items-center gap-3">
-                <Award className="w-8 h-8 text-[hsl(145,80%,42%)]" />
-                <div>
-                  <div className="text-2xl font-black text-white">20+</div>
-                  <div className="text-sm text-white/60">Years Exp</div>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Right Content - Chart Card with Glassmorphism */}
+          {/* Right Content - Founder Card with Glassmorphism */}
           <div 
             className="animate-fade-in-right"
             style={{
@@ -157,81 +157,36 @@ const Hero = () => {
               transition: 'transform 0.3s ease-out'
             }}
           >
-            <div className="backdrop-blur-lg bg-white/95 border-4 border-primary/20 rounded-2xl p-8 shadow-2xl hover:shadow-[0_20px_80px_rgba(99,102,241,0.4)] transition-all duration-300 hover:border-primary/40">
-              <div className="flex justify-between items-start mb-6">
-                <div>
-                  <div className="text-sm font-bold text-muted-foreground mb-1">
-                    Student Success Rate
-                  </div>
-                  <div className="text-4xl font-black text-foreground">95.4%</div>
-                  <div className="text-[hsl(145,80%,42%)] font-bold text-sm mt-1">
-                    ↑ +18.2% this year
-                  </div>
-                </div>
+            <div className="relative backdrop-blur-lg bg-white/95 border-4 border-primary/20 rounded-2xl shadow-2xl hover:shadow-[0_20px_80px_rgba(99,102,241,0.4)] transition-all duration-300 hover:border-primary/40 overflow-hidden">
+              {/* Decorative Background Elements */}
+              <div className="absolute top-4 right-4 w-16 h-16 bg-gradient-to-br from-primary/10 to-accent/10 rounded-full blur-xl pointer-events-none z-10"></div>
+              <div className="absolute bottom-4 left-4 w-20 h-20 bg-gradient-to-tr from-accent/10 to-primary/10 rounded-full blur-xl pointer-events-none z-10"></div>
+              
+              {/* Founder Full-Length Image */}
+              <div className="relative w-full max-h-fit overflow-hidden">
+                <img
+                  src="/founder.jpg"
+                  alt="Vinod Baghel - Founder & CEO"
+                  className="w-full h-full object-cover object-center"
+                />
+                {/* Gradient Overlay at bottom */}
+                {/* <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white/95 via-white/70 to-transparent"></div> */}
               </div>
 
-              {/* Chart Visualization */}
-              <div className="relative h-64">
-                <svg
-                  className="w-full h-full"
-                  viewBox="0 0 400 200"
-                  preserveAspectRatio="none"
-                >
-                  <defs>
-                    <linearGradient id="chartGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-                      <stop offset="0%" stopColor="hsl(217, 91%, 51%)" stopOpacity="0.3" />
-                      <stop offset="100%" stopColor="hsl(189, 100%, 50%)" stopOpacity="0.05" />
-                    </linearGradient>
-                  </defs>
-                  
-                  {/* Chart Line */}
-                  <path
-                    d="M0,180 L50,160 L100,140 L150,100 L200,80 L250,60 L300,40 L350,20 L400,10"
-                    stroke="hsl(217, 91%, 51%)"
-                    strokeWidth="3"
-                    fill="none"
-                    className="animate-[dash_2s_ease-out_forwards]"
-                    style={{
-                      strokeDasharray: "1000",
-                      strokeDashoffset: "1000",
-                      animation: "dash 2s ease-out forwards",
-                    }}
-                  />
-                  
-                  {/* Fill Area */}
-                  <path
-                    d="M0,180 L50,160 L100,140 L150,100 L200,80 L250,60 L300,40 L350,20 L400,10 L400,200 L0,200 Z"
-                    fill="url(#chartGradient)"
-                  />
-                </svg>
-              </div>
+              {/* Content Section */}
+              <div className="p-8 pb-8 relative z-20">
 
-              <div className="grid grid-cols-3 gap-4 mt-6 pt-6 border-t-2">
-                <div>
-                  <div className="text-2xl font-black text-primary">500+</div>
-                  <div className="text-xs text-muted-foreground font-semibold">Graduates</div>
-                </div>
-                <div>
-                  <div className="text-2xl font-black text-accent">100+</div>
-                  <div className="text-xs text-muted-foreground font-semibold">Markets</div>
-                </div>
-                <div>
-                  <div className="text-2xl font-black text-[hsl(145,80%,42%)]">24/7</div>
-                  <div className="text-xs text-muted-foreground font-semibold">Support</div>
-                </div>
+                 <div className="text-center">
+                  <div className="inline-flex items-center gap-2 bg-gradient-to-r from-primary/10 to-accent/10 text-primary px-4 py-1.5 rounded-full text-sm font-bold">
+                    <Award className="w-4 h-4" />
+                    Founder & Expert Trader
+                  </div>
+                </div> 
               </div>
             </div>
           </div>
         </div>
       </div>
-
-      <style>{`
-        @keyframes dash {
-          to {
-            stroke-dashoffset: 0;
-          }
-        }
-      `}</style>
     </section>
   );
 };
