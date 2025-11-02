@@ -39,32 +39,32 @@ const CTA = () => {
     <section
       ref={sectionRef}
       id="contact"
-      className="py-24 bg-black border-b-4 border-white/30 relative overflow-hidden"
+      className="py-24 border-b-4 border-white/30 relative overflow-hidden"
     >
-      {/* Background Effects with Parallax */}
-      <div 
-        className="absolute top-0 left-1/4 w-96 h-96 bg-white/6 rounded-full blur-3xl animate-pulse"
-        style={{
-          transform: `translateY(${scrollY * 60}px)`,
-          transition: 'transform 0.1s linear'
-        }}
-      />
-      <div 
-        className="absolute bottom-0 right-1/4 w-96 h-96 bg-white/4 rounded-full blur-3xl animate-pulse delay-1000"
-        style={{
-          transform: `translateY(${-scrollY * 80}px)`,
-          transition: 'transform 0.1s linear'
-        }}
-      />
-
-      {/* Animated Grid */}
+      {/* Background Grid with Parallax */}
       <div
-        className="absolute inset-0 opacity-30"
+        className="absolute inset-0 opacity-50"
         style={{
           backgroundImage:
-            "linear-gradient(rgba(255,255,255,0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.08) 1px, transparent 1px)",
+            "linear-gradient(rgba(255,255,255,0.18) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.18) 1px, transparent 1px)",
           backgroundSize: "50px 50px",
-          animation: "grid-move 20s linear infinite",
+          transform: `translateY(${scrollY * 50}px)`,
+        }}
+      />
+      
+      {/* Parallax Gradient Orbs */}
+      <div 
+        className="absolute top-20 right-0 w-96 h-96 bg-white/10 rounded-full blur-3xl"
+        style={{
+          transform: `translateY(${scrollY * 80}px)`,
+          transition: 'transform 0.1s linear'
+        }}
+      />
+      <div 
+        className="absolute bottom-20 left-0 w-96 h-96 bg-white/10 rounded-full blur-3xl"
+        style={{
+          transform: `translateY(${-scrollY * 100}px)`,
+          transition: 'transform 0.1s linear'
         }}
       />
 

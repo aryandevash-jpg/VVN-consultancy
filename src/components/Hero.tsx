@@ -49,31 +49,30 @@ const Hero = () => {
       {/* Animated Particle Background */}
       <AnimatedBackground />
       
-      {/* Animated Grid Background */}
-        <div
-        className="absolute inset-0 opacity-30"
+      {/* Background Grid with Parallax */}
+      <div
+        className="absolute inset-0 opacity-50"
         style={{
           backgroundImage:
-            "linear-gradient(rgba(255,255,255,0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.08) 1px, transparent 1px)",
+            "linear-gradient(rgba(255,255,255,0.18) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.18) 1px, transparent 1px)",
           backgroundSize: "50px 50px",
-          animation: "grid-move 20s linear infinite",
+          transform: `translateY(${mousePosition.y * 0.5}px)`,
         }}
       />
 
-      {/* Gradient Orbs with Parallax */}
+      {/* Parallax Gradient Orbs */}
       <div 
-        className="absolute top-20 right-0 w-96 h-96 bg-white/8 rounded-full blur-3xl animate-float"
+        className="absolute top-20 right-0 w-96 h-96 bg-white/10 rounded-full blur-3xl"
         style={{
           transform: `translate(${mousePosition.x * 2}px, ${mousePosition.y * 2}px)`,
           transition: 'transform 0.3s ease-out'
         }}
       />
       <div 
-        className="absolute bottom-20 left-0 w-96 h-96 bg-white/6 rounded-full blur-3xl animate-float"
+        className="absolute bottom-20 left-0 w-96 h-96 bg-white/10 rounded-full blur-3xl"
         style={{
           transform: `translate(${-mousePosition.x * 1.5}px, ${-mousePosition.y * 1.5}px)`,
-          transition: 'transform 0.3s ease-out',
-          animationDelay: '1s'
+          transition: 'transform 0.3s ease-out'
         }}
       />
 
@@ -180,7 +179,7 @@ const Hero = () => {
               {/* Decorative Background Elements */}
               <div className="absolute top-4 right-4 w-16 h-16 bg-white/5 rounded-full blur-xl pointer-events-none z-10"></div>
               <div className="absolute bottom-4 left-4 w-20 h-20 bg-white/5 rounded-full blur-xl pointer-events-none z-10"></div>
-              
+
               {/* Founder Full-Length Image */}
               <div className="relative w-full max-h-fit overflow-hidden">
                 <img
@@ -199,8 +198,8 @@ const Hero = () => {
                   <div className="inline-flex items-center gap-2 bg-white/10 text-black px-4 py-1.5 rounded-full text-sm font-bold">
                     <Award className="w-4 h-4" />
                     Founder & Expert Trader
-                  </div>
-                </div> 
+                </div>
+                </div>
               </div>
             </div>
           </div>

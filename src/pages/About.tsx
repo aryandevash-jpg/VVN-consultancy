@@ -70,7 +70,9 @@ interface AboutData {
 const About = () => {
   const [data, setData] = useState<AboutData | null>(null);
   const [loading, setLoading] = useState(true);
+  const [scrollY, setScrollY] = useState(0);
   const [visibleSections, setVisibleSections] = useState<Set<string>>(new Set());
+  const pageRef = useRef<HTMLDivElement>(null);
   const sectionRefs = {
     overview: useRef<HTMLDivElement>(null),
     vision: useRef<HTMLDivElement>(null),
@@ -94,6 +96,16 @@ const About = () => {
     };
 
     loadData();
+  }, []);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    handleScroll();
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   useEffect(() => {
@@ -121,7 +133,7 @@ const About = () => {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-black flex items-center justify-center">
+      <div className="min-h-screen flex items-center justify-center">
         <p className="text-white text-xl">Loading...</p>
       </div>
     );
@@ -129,17 +141,17 @@ const About = () => {
 
   if (!data) {
     return (
-      <div className="min-h-screen bg-black flex items-center justify-center">
+      <div className="min-h-screen flex items-center justify-center">
         <p className="text-white text-xl">Error loading data</p>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-black relative">
+    <div ref={pageRef} className="min-h-screen relative overflow-hidden">
       <AnimatedBackground />
       <Navigation />
-      <div className="pt-20">
+      <div className="pt-20 relative z-10">
         {/* Hero Section */}
         <section className="relative py-20 px-6 lg:px-8 overflow-hidden">
           <div className="max-w-7xl mx-auto">
@@ -409,20 +421,25 @@ const About = () => {
               {/* Animated glow background */}
               <div className="absolute inset-0 bg-white/0 group-hover:bg-white/5 rounded-lg transition-all duration-500 blur-xl" />
               <CardHeader className="relative z-10">
-                <div className="flex items-center gap-4 mb-4">
-                  <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
-                    <User className="w-10 h-10 text-black group-hover:animate-wiggle" />
+                <div className="flex flex-col md:flex-row items-start md:items-center gap-6 mb-6">
+                  <div className="w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-4 border-white/30 shadow-[0_8px_32px_rgba(255,255,255,0.2)] group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 flex-shrink-0">
+                    <img 
+                      src="/vinod-sir.jpeg" 
+                      alt={data.founder_message.name}
+                      className="w-full h-full object-cover"
+                      loading="lazy"
+                    />
                   </div>
-                  <div>
-                    <CardTitle className="text-3xl font-black text-white group-hover:scale-105 transition-transform">
+                  <div className="flex-1">
+                    <CardTitle className="text-3xl font-black text-white group-hover:scale-105 transition-transform mb-2">
                       {data.founder_message.name}
                     </CardTitle>
-                    <p className="text-white/80 text-lg mt-1 group-hover:text-white transition-colors">{data.founder_message.title}</p>
+                    <p className="text-white/80 text-lg mb-4 group-hover:text-white transition-colors">{data.founder_message.title}</p>
+                    <CardDescription className="text-white/90 text-xl leading-relaxed group-hover:text-white transition-colors">
+                      {data.founder_message.greeting}
+                    </CardDescription>
                   </div>
                 </div>
-                <CardDescription className="text-white/90 text-xl leading-relaxed group-hover:text-white transition-colors">
-                  {data.founder_message.greeting}
-                </CardDescription>
               </CardHeader>
               <CardContent className="space-y-6 relative z-10">
                 <div className="space-y-4">

@@ -36,9 +36,11 @@ interface DetailedCourse {
 const Courses = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [selectedCourse, setSelectedCourse] = useState<number | null>(null);
+  const [expandedCourses, setExpandedCourses] = useState<Set<number>>(new Set());
   const [courses, setCourses] = useState<DetailedCourse[]>([]);
   const [loading, setLoading] = useState(true);
   const sectionRef = useRef<HTMLDivElement>(null);
+  const pageRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     // Fetch course data from JSON file
@@ -74,6 +76,7 @@ const Courses = () => {
     return () => observer.disconnect();
   }, []);
 
+
   const formatPrice = (amount: number, currency: string) => {
     return new Intl.NumberFormat("en-IN", {
       style: "currency",
@@ -89,11 +92,23 @@ const Courses = () => {
     }
   };
 
+  const toggleCourseDetails = (courseId: number) => {
+    setExpandedCourses((prev) => {
+      const newSet = new Set(prev);
+      if (newSet.has(courseId)) {
+        newSet.delete(courseId);
+      } else {
+        newSet.add(courseId);
+      }
+      return newSet;
+    });
+  };
+
   return (
-    <div className="min-h-screen bg-black relative">
+    <div ref={pageRef} className="min-h-screen relative overflow-hidden">
       <AnimatedBackground />
       <Navigation />
-      <div className="pt-20">
+      <div className="pt-20 relative z-10">
         {/* Hero Section */}
         <section className="relative py-20 px-6 lg:px-8 overflow-hidden">
           <div className="max-w-7xl mx-auto">
@@ -216,14 +231,9 @@ const Courses = () => {
                     <Button
                       variant="outline"
                       className="w-full font-semibold border-2 border-white/30 backdrop-blur-sm bg-white/10 text-white hover:bg-white hover:text-black transition-all duration-300"
-                      onClick={() => {
-                        const element = document.getElementById(`course-details-${course.id}`);
-                        if (element) {
-                          element.scrollIntoView({ behavior: "smooth", block: "center" });
-                        }
-                      }}
+                      onClick={() => toggleCourseDetails(course.id)}
                     >
-                      View Details
+                      {expandedCourses.has(course.id) ? "Hide Details" : "View Details"}
                     </Button>
                   </CardFooter>
                 </Card>
@@ -233,8 +243,8 @@ const Courses = () => {
           </div>
         </section>
 
-        {/* Detailed Course Information */}
-        {!loading && courses.length > 0 && (
+        {/* Detailed Course Information - Only show expanded courses */}
+        {!loading && courses.length > 0 && expandedCourses.size > 0 && (
           <section className="py-16 px-6 lg:px-8 relative z-10 bg-black/50">
             <div className="max-w-5xl mx-auto">
               <h2 className="text-4xl lg:text-5xl font-black text-white mb-12 text-center">
@@ -242,16 +252,11 @@ const Courses = () => {
               </h2>
               
               <div className="space-y-8">
-                {courses.map((course, index) => (
+                {courses.filter(course => expandedCourses.has(course.id)).map((course, index) => (
                 <Card
                   key={course.id}
                   id={`course-details-${course.id}`}
-                  className="border-2 border-white/20 backdrop-blur-sm bg-white/5 hover:border-white/40 transition-all duration-300"
-                  style={{
-                    opacity: isVisible ? 1 : 0,
-                    transform: isVisible ? 'translateY(0)' : 'translateY(30px)',
-                    transition: `all 0.6s ease-out ${index * 0.15 + 0.3}s`,
-                  }}
+                  className="border-2 border-white/20 backdrop-blur-sm bg-white/5 hover:border-white/40 transition-all duration-300 animate-fade-in"
                 >
                   <CardHeader>
                     <div className="flex items-center gap-3 mb-4">

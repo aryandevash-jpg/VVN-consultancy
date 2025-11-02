@@ -12,12 +12,15 @@ interface TeamMember {
 
 const Team = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [scrollY, setScrollY] = useState(0);
   const sectionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleScroll = () => {
       if (sectionRef.current) {
         const rect = sectionRef.current.getBoundingClientRect();
+        const scrollProgress = 1 - (rect.top / window.innerHeight);
+        setScrollY(scrollProgress);
         setIsVisible(rect.top < window.innerHeight * 0.8 && rect.bottom > 0);
       }
     };
@@ -59,13 +62,34 @@ const Team = () => {
     <section
       ref={sectionRef}
       id="team"
-      className="py-24 bg-black border-b-2 border-white/20 relative overflow-hidden"
+      className="py-24 border-b-2 border-white/20 relative overflow-hidden"
     >
-      {/* Background Animation */}
-      <div className="absolute inset-0 opacity-30">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-white/4 rounded-full blur-3xl animate-float" />
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-white/4 rounded-full blur-3xl animate-float" style={{ animationDelay: '1s' }} />
-      </div>
+      {/* Background Grid with Parallax */}
+      <div
+        className="absolute inset-0 opacity-50"
+        style={{
+          backgroundImage:
+            "linear-gradient(rgba(255,255,255,0.18) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.18) 1px, transparent 1px)",
+          backgroundSize: "50px 50px",
+          transform: `translateY(${scrollY * 50}px)`,
+        }}
+      />
+      
+      {/* Parallax Gradient Orbs */}
+      <div 
+        className="absolute top-20 right-0 w-96 h-96 bg-white/10 rounded-full blur-3xl"
+        style={{
+          transform: `translateY(${scrollY * 80}px)`,
+          transition: 'transform 0.1s linear'
+        }}
+      />
+      <div 
+        className="absolute bottom-20 left-0 w-96 h-96 bg-white/10 rounded-full blur-3xl"
+        style={{
+          transform: `translateY(${-scrollY * 100}px)`,
+          transition: 'transform 0.1s linear'
+        }}
+      />
 
       <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
         {/* Section Header */}

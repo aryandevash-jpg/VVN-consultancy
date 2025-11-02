@@ -148,9 +148,21 @@ const Gallery = () => {
   const [isLightboxOpen, setIsLightboxOpen] = useState(false);
   const [lightboxIndex, setLightboxIndex] = useState(0);
   const [visibleItems, setVisibleItems] = useState<Set<number>>(new Set());
+  const [scrollY, setScrollY] = useState(0);
   const sectionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    const handleScroll = () => {
+      if (sectionRef.current) {
+        const rect = sectionRef.current.getBoundingClientRect();
+        const scrollProgress = 1 - (rect.top / window.innerHeight);
+        setScrollY(scrollProgress);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    handleScroll();
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -167,7 +179,10 @@ const Gallery = () => {
     const items = sectionRef.current?.querySelectorAll('[data-index]');
     items?.forEach((item) => observer.observe(item));
 
-    return () => observer.disconnect();
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      observer.disconnect();
+    };
   }, []);
 
   const openLightbox = (index: number) => {
@@ -201,27 +216,35 @@ const Gallery = () => {
       <section
         id="gallery"
         ref={sectionRef}
-        className="relative py-24 bg-black overflow-hidden border-b-2 border-white/20"
+        className="relative py-24 overflow-hidden border-b-2 border-white/20"
       >
         {/* Background Effects */}
         <FloatingParticles />
         
-        <div className="absolute inset-0">
-          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-white/5 rounded-full blur-3xl animate-float" />
-          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-white/5 rounded-full blur-3xl animate-float" style={{ animationDelay: '2s' }} />
-          <div className="absolute top-1/2 right-1/4 w-[500px] h-[500px] bg-white/3 rounded-full blur-3xl animate-float" style={{ animationDelay: '4s' }} />
-        </div>
-
-        {/* Animated Grid Pattern */}
-        <div 
-          className="absolute inset-0 opacity-30"
+        {/* Background Grid with Parallax */}
+        <div
+          className="absolute inset-0 opacity-50"
           style={{
-            backgroundImage: `
-              linear-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px),
-              linear-gradient(90deg, rgba(255, 255, 255, 0.08) 1px, transparent 1px)
-            `,
-            backgroundSize: '50px 50px',
-            animation: 'glow-rotate 20s linear infinite',
+            backgroundImage:
+              "linear-gradient(rgba(255,255,255,0.18) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.18) 1px, transparent 1px)",
+            backgroundSize: "50px 50px",
+            transform: `translateY(${scrollY * 50}px)`,
+          }}
+        />
+        
+        {/* Parallax Gradient Orbs */}
+        <div 
+          className="absolute top-20 right-0 w-96 h-96 bg-white/10 rounded-full blur-3xl"
+          style={{
+            transform: `translateY(${scrollY * 80}px)`,
+            transition: 'transform 0.1s linear'
+          }}
+        />
+        <div 
+          className="absolute bottom-20 left-0 w-96 h-96 bg-white/10 rounded-full blur-3xl"
+          style={{
+            transform: `translateY(${-scrollY * 100}px)`,
+            transition: 'transform 0.1s linear'
           }}
         />
 

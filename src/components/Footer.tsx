@@ -29,7 +29,7 @@ const Footer = () => {
   };
 
   return (
-    <footer ref={footerRef} className="bg-black text-white py-16 border-t-2 border-white/20">
+    <footer ref={footerRef} className="text-white py-16 border-t-2 border-white/20">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
           {/* Company Info */}

@@ -11,8 +11,20 @@ const CustomCursor = () => {
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [isVisible, setIsVisible] = useState(false);
   const [splashes, setSplashes] = useState<Splash[]>([]);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
+    // Check if mobile device
+    let mobileCheck = window.innerWidth < 768 || 'ontouchstart' in window;
+    
+    const checkMobile = () => {
+      mobileCheck = window.innerWidth < 768 || 'ontouchstart' in window;
+      setIsMobile(mobileCheck);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+
     let animationFrame: number;
     let targetX = 0;
     let targetY = 0;
@@ -21,6 +33,9 @@ const CustomCursor = () => {
     let splashId = 0;
 
     const updateCursor = (e: MouseEvent) => {
+      // Only track cursor on desktop
+      if (mobileCheck) return;
+      
       // Check if mouse is outside viewport
       if (
         e.clientX < 0 ||
@@ -38,9 +53,12 @@ const CustomCursor = () => {
     };
 
     const animate = () => {
-      currentX += (targetX - currentX) * 0.15;
-      currentY += (targetY - currentY) * 0.15;
-      setPosition({ x: currentX, y: currentY });
+      // Only animate cursor follower on desktop
+      if (!mobileCheck) {
+        currentX += (targetX - currentX) * 0.15;
+        currentY += (targetY - currentY) * 0.15;
+        setPosition({ x: currentX, y: currentY });
+      }
       animationFrame = requestAnimationFrame(animate);
     };
 
@@ -58,12 +76,15 @@ const CustomCursor = () => {
       setIsVisible(true);
     };
 
-    const handleClick = (e: MouseEvent) => {
-      // Create splash effect on click
+    const handleClick = (e: MouseEvent | TouchEvent) => {
+      // Create splash effect on click/tap (works on both mobile and desktop)
+      const clientX = 'touches' in e ? e.touches[0]?.clientX ?? e.changedTouches[0]?.clientX ?? 0 : e.clientX;
+      const clientY = 'touches' in e ? e.touches[0]?.clientY ?? e.changedTouches[0]?.clientY ?? 0 : e.clientY;
+      
       const newSplash: Splash = {
         id: splashId++,
-        x: e.clientX,
-        y: e.clientY,
+        x: clientX,
+        y: clientY,
         timestamp: Date.now(),
       };
       
@@ -75,17 +96,28 @@ const CustomCursor = () => {
       }, 800);
     };
 
-    window.addEventListener("mousemove", updateCursor);
-    window.addEventListener("click", handleClick);
-    document.addEventListener("mouseleave", handleMouseLeave);
-    document.addEventListener("mouseenter", handleMouseEnter);
+    // Only add mouse event listeners on desktop
+    if (!mobileCheck) {
+      window.addEventListener("mousemove", updateCursor);
+      document.addEventListener("mouseleave", handleMouseLeave);
+      document.addEventListener("mouseenter", handleMouseEnter);
+    }
+    
+    // Add click/touch listeners for splash effect (works on both mobile and desktop)
+    window.addEventListener("click", handleClick as any);
+    window.addEventListener("touchstart", handleClick as any);
+    
     animate();
 
     return () => {
-      window.removeEventListener("mousemove", updateCursor);
-      window.removeEventListener("click", handleClick);
-      document.removeEventListener("mouseleave", handleMouseLeave);
-      document.removeEventListener("mouseenter", handleMouseEnter);
+      if (!mobileCheck) {
+        window.removeEventListener("mousemove", updateCursor);
+        document.removeEventListener("mouseleave", handleMouseLeave);
+        document.removeEventListener("mouseenter", handleMouseEnter);
+      }
+      window.removeEventListener("click", handleClick as any);
+      window.removeEventListener("touchstart", handleClick as any);
+      window.removeEventListener('resize', checkMobile);
       if (animationFrame) {
         cancelAnimationFrame(animationFrame);
       }
@@ -94,10 +126,10 @@ const CustomCursor = () => {
 
   return (
     <>
-      {/* Glowing light that follows cursor */}
-      {isVisible && (
+      {/* Glowing light that follows cursor - Hidden on mobile */}
+      {isVisible && !isMobile && (
         <div
-          className="fixed pointer-events-none z-[9999]"
+          className="hidden md:block fixed pointer-events-none z-[9999]"
           style={{
             left: `${position.x}px`,
             top: `${position.y}px`,

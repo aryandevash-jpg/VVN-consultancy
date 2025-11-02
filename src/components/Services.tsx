@@ -6,6 +6,7 @@ const Services = () => {
   const [scrollY, setScrollY] = useState(0);
   const sectionRef = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
+  const [hoverTransforms, setHoverTransforms] = useState<Record<number, { rotateX: number; rotateY: number }>>({});
 
   useEffect(() => {
     const handleScroll = () => {
@@ -64,24 +65,34 @@ const Services = () => {
     <section 
       ref={sectionRef}
       id="services" 
-      className="py-24 bg-black border-b-2 border-white/20 relative overflow-hidden"
+      className="py-24 border-b-2 border-white/20 relative overflow-hidden"
     >
-      {/* Parallax Background Elements */}
-      <div 
-        className="absolute top-0 right-0 w-64 h-64 bg-white/4 rounded-full blur-3xl"
+      {/* Background Grid with Parallax */}
+      <div
+        className="absolute inset-0 opacity-50"
         style={{
-          transform: `translateY(${scrollY * 100}px)`,
-          transition: 'transform 0.1s linear'
-        }}
-      />
-      <div 
-        className="absolute bottom-0 left-0 w-96 h-96 bg-white/4 rounded-full blur-3xl"
-        style={{
-          transform: `translateY(${-scrollY * 150}px)`,
-          transition: 'transform 0.1s linear'
+          backgroundImage:
+            "linear-gradient(rgba(255,255,255,0.18) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.18) 1px, transparent 1px)",
+          backgroundSize: "50px 50px",
+          transform: `translateY(${scrollY * 50}px)`,
         }}
       />
       
+      {/* Parallax Gradient Orbs */}
+      <div 
+        className="absolute top-20 right-0 w-96 h-96 bg-white/10 rounded-full blur-3xl"
+        style={{
+          transform: `translateY(${scrollY * 80}px)`,
+          transition: 'transform 0.1s linear'
+        }}
+      />
+      <div 
+        className="absolute bottom-20 left-0 w-96 h-96 bg-white/10 rounded-full blur-3xl"
+        style={{
+          transform: `translateY(${-scrollY * 100}px)`,
+          transition: 'transform 0.1s linear'
+        }}
+      />
       <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
@@ -101,28 +112,51 @@ const Services = () => {
           {services.map((service, index) => (
             <Card
               key={index}
-              className="group relative overflow-hidden p-8 border-2 border-white/20 hover:border-white/60 backdrop-blur-sm bg-white/5 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_60px_rgba(255,255,255,0.1)] hover:bg-white/10 hover:rotate-y-5"
+              className="group relative overflow-hidden p-8 border-2 border-white/20 hover:border-white/60 backdrop-blur-sm bg-white/5 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_60px_rgba(255,255,255,0.1)] hover:bg-white/10 cursor-default select-none"
               style={{
                 opacity: isVisible ? 1 : 0,
                 transform: isVisible 
-                  ? 'translateY(0) rotateX(0) rotateY(0)' 
+                  ? (hoverTransforms[index] 
+                      ? `translateY(-8px) rotateX(${hoverTransforms[index].rotateX}deg) rotateY(${hoverTransforms[index].rotateY}deg)`
+                      : 'translateY(0) rotateX(0) rotateY(0)')
                   : 'translateY(50px) rotateX(15deg)',
-                transition: `all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) ${index * 0.1}s`,
+                transition: hoverTransforms[index] 
+                  ? 'transform 0.1s ease-out' 
+                  : `all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) ${index * 0.1}s`,
                 transformStyle: 'preserve-3d',
+                userSelect: 'none',
+                WebkitUserSelect: 'none',
+                touchAction: 'pan-y', // Allow vertical scrolling but prevent other touch gestures
               }}
               onMouseMove={(e) => {
-                const card = e.currentTarget;
-                const rect = card.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
-                const centerX = rect.width / 2;
-                const centerY = rect.height / 2;
-                const rotateX = (y - centerY) / 10;
-                const rotateY = (centerX - x) / 10;
-                card.style.transform = `translateY(-8px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+                // Only apply 3D effect on desktop (non-touch devices)
+                if (window.innerWidth >= 768 && isVisible) {
+                  const card = e.currentTarget;
+                  const rect = card.getBoundingClientRect();
+                  const x = e.clientX - rect.left;
+                  const y = e.clientY - rect.top;
+                  const centerX = rect.width / 2;
+                  const centerY = rect.height / 2;
+                  const rotateX = (y - centerY) / 10;
+                  const rotateY = (centerX - x) / 10;
+                  
+                  setHoverTransforms(prev => ({
+                    ...prev,
+                    [index]: { rotateX, rotateY }
+                  }));
+                }
               }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.transform = 'translateY(0) rotateX(0) rotateY(0)';
+              onMouseLeave={() => {
+                setHoverTransforms(prev => {
+                  const newTransforms = { ...prev };
+                  delete newTransforms[index];
+                  return newTransforms;
+                });
+              }}
+              onClick={(e) => {
+                // Explicitly prevent any navigation - cards are not clickable
+                e.preventDefault();
+                e.stopPropagation();
               }}
             >
               {/* Top Border Animation */}
@@ -140,8 +174,8 @@ const Services = () => {
               <h3 className="text-2xl font-black text-white mb-3 group-hover:text-white/90 transition-colors">{service.title}</h3>
               <p className="text-white opacity-95 leading-relaxed mb-4 group-hover:opacity-100 transition-opacity">{service.description}</p>
 
-              {/* Learn More Link */}
-              <div className="flex items-center gap-2 text-white font-bold transition-all">
+              {/* Learn More - Decorative only, no link */}
+              <div className="flex items-center gap-2 text-white/70 font-bold transition-all pointer-events-none">
                 Learn More
                 <span className="text-xl inline-block">→</span>
               </div>

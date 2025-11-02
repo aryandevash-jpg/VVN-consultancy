@@ -70,24 +70,34 @@ const Testimonials = () => {
     <section 
       ref={sectionRef}
       id="testimonials" 
-      className="py-24 bg-black border-b-2 border-white/20 relative overflow-hidden"
+      className="py-24 border-b-2 border-white/20 relative overflow-hidden"
     >
-      {/* Parallax Background Elements */}
-      <div 
-        className="absolute top-0 left-0 w-72 h-72 bg-white/4 rounded-full blur-3xl"
+      {/* Background Grid with Parallax */}
+      <div
+        className="absolute inset-0 opacity-50"
         style={{
-          transform: `translateY(${scrollY * 120}px)`,
-          transition: 'transform 0.1s linear'
-        }}
-      />
-      <div 
-        className="absolute bottom-0 right-0 w-96 h-96 bg-white/4 rounded-full blur-3xl"
-        style={{
-          transform: `translateY(${-scrollY * 80}px)`,
-          transition: 'transform 0.1s linear'
+          backgroundImage:
+            "linear-gradient(rgba(255,255,255,0.18) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.18) 1px, transparent 1px)",
+          backgroundSize: "50px 50px",
+          transform: `translateY(${scrollY * 50}px)`,
         }}
       />
       
+      {/* Parallax Gradient Orbs */}
+      <div 
+        className="absolute top-20 right-0 w-96 h-96 bg-white/10 rounded-full blur-3xl"
+        style={{
+          transform: `translateY(${scrollY * 80}px)`,
+          transition: 'transform 0.1s linear'
+        }}
+      />
+      <div 
+        className="absolute bottom-20 left-0 w-96 h-96 bg-white/10 rounded-full blur-3xl"
+        style={{
+          transform: `translateY(${-scrollY * 100}px)`,
+          transition: 'transform 0.1s linear'
+        }}
+      />
       <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">

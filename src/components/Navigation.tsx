@@ -1,12 +1,13 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 const Navigation = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -59,15 +60,15 @@ const Navigation = () => {
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-white group-hover:w-full transition-all duration-300" />
               </Link>
             )}
+            <Link
+              to="/services"
+              className={`text-white/95 hover:text-white hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.8)] font-semibold transition-all duration-300 relative group hover:scale-110 ${location.pathname === "/services" ? "text-white" : ""}`}
+            >
+              Services
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-white group-hover:w-full transition-all duration-300" />
+            </Link>
             {location.pathname === "/" ? (
               <>
-                <button
-                  onClick={() => scrollToSection("services")}
-                  className="text-white/95 hover:text-white hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.8)] font-semibold transition-all duration-300 relative group hover:scale-110"
-                >
-                  Services
-                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-white group-hover:w-full transition-all duration-300" />
-                </button>
                 <button
                   onClick={() => scrollToSection("process")}
                   className="text-white/95 hover:text-white hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.8)] font-semibold transition-all duration-300 relative group hover:scale-110"
@@ -85,12 +86,6 @@ const Navigation = () => {
               </>
             ) : (
               <>
-                <Link
-                  to="/#services"
-                  className="text-white/95 hover:text-white hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.8)] font-semibold transition-all duration-300"
-                >
-                  Services
-                </Link>
                 <Link
                   to="/#process"
                   className="text-white/95 hover:text-white hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.8)] font-semibold transition-all duration-300"
@@ -122,6 +117,13 @@ const Navigation = () => {
               className={`text-white/95 hover:text-white hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.8)] font-semibold transition-all duration-300 relative group hover:scale-110 ${location.pathname === "/courses" ? "text-white" : ""}`}
             >
               Courses
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-white group-hover:w-full transition-all duration-300" />
+            </Link>
+            <Link
+              to="/contact"
+              className={`text-white/95 hover:text-white hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.8)] font-semibold transition-all duration-300 relative group hover:scale-110 ${location.pathname === "/contact" ? "text-white" : ""}`}
+            >
+              Contact
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-white group-hover:w-full transition-all duration-300" />
             </Link>
           </div>
@@ -175,22 +177,37 @@ const Navigation = () => {
                 Home
               </Link>
             )}
+            {/* Services - Always navigate to /services page (not homepage section) */}
+            <button
+              onClick={() => {
+                setMobileMenuOpen(false);
+                // Ensure we navigate to /services page, not scroll to #services on homepage
+                if (location.pathname === "/") {
+                  navigate("/services", { replace: false });
+                } else {
+                  navigate("/services");
+                }
+              }}
+              className="block w-full text-left text-white/80 hover:text-white font-semibold py-2 transition-colors"
+            >
+              Services
+            </button>
             {location.pathname === "/" ? (
               <>
                 <button
-                  onClick={() => scrollToSection("services")}
-                  className="block w-full text-left text-white/80 hover:text-white font-semibold py-2 transition-colors"
-                >
-                  Services
-                </button>
-                <button
-                  onClick={() => scrollToSection("process")}
+                  onClick={() => {
+                    scrollToSection("process");
+                    setMobileMenuOpen(false);
+                  }}
                   className="block w-full text-left text-white/80 hover:text-white font-semibold py-2 transition-colors"
                 >
                   Process
                 </button>
                 <button
-                  onClick={() => scrollToSection("testimonials")}
+                  onClick={() => {
+                    scrollToSection("testimonials");
+                    setMobileMenuOpen(false);
+                  }}
                   className="block w-full text-left text-white/80 hover:text-white font-semibold py-2 transition-colors"
                 >
                   Results
@@ -198,13 +215,6 @@ const Navigation = () => {
               </>
             ) : (
               <>
-                <Link
-                  to="/#services"
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="block w-full text-left text-white/80 hover:text-white font-semibold py-2 transition-colors"
-                >
-                  Services
-                </Link>
                 <Link
                   to="/#process"
                   onClick={() => setMobileMenuOpen(false)}
@@ -241,6 +251,13 @@ const Navigation = () => {
               className="block w-full text-left text-white/80 hover:text-white font-semibold py-2 transition-colors"
             >
               Courses
+            </Link>
+            <Link
+              to="/contact"
+              onClick={() => setMobileMenuOpen(false)}
+              className="block w-full text-left text-white/80 hover:text-white font-semibold py-2 transition-colors"
+            >
+              Contact
             </Link>
             <Button
               size="lg"

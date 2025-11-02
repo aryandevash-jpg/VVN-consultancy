@@ -101,7 +101,7 @@ const ScrollGallery = () => {
   return (
     <section
       id="scroll-gallery"
-      className="relative bg-black overflow-hidden"
+      className="relative overflow-hidden"
     >
       {/* Scroll Progress Indicator - Fixed on the side */}
       <div className="fixed right-8 top-1/2 -translate-y-1/2 z-50 hidden md:block">
@@ -311,18 +311,18 @@ const Scene = ({
       <motion.div
         className="absolute inset-0"
         style={{
-          opacity: useTransform(sceneProgress, [0, 0.5, 1], [0.3, 0.5, 0.3]),
+          opacity: useTransform(sceneProgress, [0, 0.5, 1], [0.4, 0.6, 0.4]),
         }}
       >
         <motion.div
-          className="absolute top-1/4 left-1/4 w-96 h-96 bg-white/5 rounded-full blur-3xl"
+          className="absolute top-1/4 left-1/4 w-96 h-96 bg-white/12 rounded-full blur-3xl"
           style={{
             x: useTransform(sceneProgress, [0, 1], [-100, 100]),
             y: useTransform(sceneProgress, [0, 1], [-50, 50]),
           }}
         />
         <motion.div
-          className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-white/5 rounded-full blur-3xl"
+          className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-white/12 rounded-full blur-3xl"
           style={{
             x: useTransform(sceneProgress, [0, 1], [100, -100]),
             y: useTransform(sceneProgress, [0, 1], [50, -50]),
