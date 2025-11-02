@@ -105,28 +105,28 @@ All colors MUST be HSL.
     -moz-osx-font-smoothing: grayscale;
   }
 
-  /* Darker white text styling */
+  /* Bright white text styling */
   .text-bright-white {
-    color: rgba(255, 255, 255, 0.7);
-    text-shadow: 0 0 1px rgba(255, 255, 255, 0.05);
+    color: #ffffff;
+    text-shadow: 0 0 1px rgba(255, 255, 255, 0.1);
   }
 
-  /* Darker white text for headings */
+  /* Bright white text for headings */
   h1, h2, h3, h4, h5, h6 {
-    color: rgba(255, 255, 255, 0.75) !important;
+    color: #ffffff !important;
     font-weight: 900;
     letter-spacing: -0.02em;
   }
 
-  /* Darker white text */
+  /* Override white text opacities to be brighter */
   .text-white {
-    color: rgba(255, 255, 255, 0.7) !important;
+    color: #ffffff !important;
   }
 
   .text-white\/70,
   .text-white\/60,
   .text-white\/80 {
-    color: rgba(255, 255, 255, 0.6) !important;
+    color: rgba(255, 255, 255, 0.95) !important;
   }
 
 }

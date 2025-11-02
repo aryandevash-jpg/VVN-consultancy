@@ -65,12 +65,12 @@ const Services = () => {
     <section 
       ref={sectionRef}
       id="services" 
-      className="py-24 border-b-2 border-white/10 relative overflow-hidden"
+      className="py-24 border-b-2 border-white/20 relative overflow-hidden"
     >
       
       {/* Parallax Gradient Orbs */}
       <div 
-        className="absolute top-20 right-0 w-96 h-96 bg-white/5 rounded-full blur-3xl"
+        className="absolute top-20 right-0 w-96 h-96 bg-white/10 rounded-full blur-3xl"
         style={{
           transform: `translateY(${scrollY * 80}px)`,
           transition: 'transform 0.1s linear'
@@ -86,7 +86,7 @@ const Services = () => {
       <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 bg-white/5 border-2 border-white/15 text-white px-4 py-2 rounded-full text-sm font-bold tracking-wider mb-4">
+          <div className="inline-flex items-center gap-2 bg-white/10 border-2 border-white/30 text-white px-4 py-2 rounded-full text-sm font-bold tracking-wider mb-4">
             OUR SERVICES
           </div>
           <h2 className="text-4xl lg:text-5xl font-black text-white mb-4 tracking-tight">
@@ -102,7 +102,7 @@ const Services = () => {
           {services.map((service, index) => (
             <Card
               key={index}
-              className="group relative overflow-hidden p-8 border-2 border-white/10 hover:border-white/30 backdrop-blur-sm bg-white/3 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_60px_rgba(255,255,255,0.05)] hover:bg-white/5 cursor-default select-none"
+              className="group relative overflow-hidden p-8 border-2 border-white/20 hover:border-white/60 backdrop-blur-sm bg-white/5 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_60px_rgba(255,255,255,0.1)] hover:bg-white/10 cursor-default select-none"
               style={{
                 opacity: isVisible ? 1 : 0,
                 transform: isVisible 
@@ -156,7 +156,7 @@ const Services = () => {
               <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
               {/* Icon */}
-              <div className="w-16 h-16 bg-white/5 border-2 border-white/40 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-12 group-hover:shadow-[0_0_30px_rgba(255,255,255,0.2)] transition-all duration-300">
+              <div className="w-16 h-16 bg-white/10 border-2 border-white rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-12 group-hover:shadow-[0_0_30px_rgba(255,255,255,0.4)] transition-all duration-300">
                 <service.icon className="w-8 h-8 text-white" />
               </div>
 

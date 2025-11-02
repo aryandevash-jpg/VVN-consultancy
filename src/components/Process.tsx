@@ -65,12 +65,12 @@ const Process = () => {
     <section
       ref={sectionRef}
       id="process"
-      className="py-24 border-b-4 border-white/15 relative overflow-hidden"
+      className="py-24 border-b-4 border-white/30 relative overflow-hidden"
     >
       
       {/* Parallax Gradient Orbs */}
       <div 
-        className="absolute top-20 right-0 w-96 h-96 bg-white/5 rounded-full blur-3xl"
+        className="absolute top-20 right-0 w-96 h-96 bg-white/10 rounded-full blur-3xl"
         style={{
           transform: `translateY(${scrollY * 80}px)`,
           transition: 'transform 0.1s linear'
@@ -87,7 +87,7 @@ const Process = () => {
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 bg-white/5 border-2 border-white/15 text-white px-4 py-2 rounded-full text-sm font-bold tracking-wider mb-4">
+          <div className="inline-flex items-center gap-2 bg-white/10 border-2 border-white/30 text-white px-4 py-2 rounded-full text-sm font-bold tracking-wider mb-4">
             OUR PROCESS
           </div>
           <h2 className="text-4xl lg:text-5xl font-black text-white mb-4 tracking-tight min-h-[60px]">
@@ -103,7 +103,7 @@ const Process = () => {
           {steps.map((step, index) => (
             <div
               key={index}
-              className="group relative bg-white/3 backdrop-blur-sm border-2 border-white/5 p-8 rounded-xl hover:bg-white/5 hover:border-white/40 transition-all duration-300 hover:-translate-y-2 hover:rotate-1 hover:shadow-[0_20px_60px_rgba(255,255,255,0.05)]"
+              className="group relative bg-white/5 backdrop-blur-sm border-2 border-white/10 p-8 rounded-xl hover:bg-white/10 hover:border-white transition-all duration-300 hover:-translate-y-2 hover:rotate-1 hover:shadow-[0_20px_60px_rgba(255,255,255,0.1)]"
               style={{
                 opacity: isVisible ? 1 : 0,
                 transform: isVisible 

@@ -75,11 +75,11 @@ const Stats = () => {
   ];
 
   return (
-    <section ref={sectionRef} className="relative py-16 border-b-2 border-white/10 overflow-hidden">
+    <section ref={sectionRef} className="relative py-16 border-b-2 border-white/20 overflow-hidden">
       
       {/* Parallax Gradient Orbs */}
       <div 
-        className="absolute top-20 right-0 w-96 h-96 bg-white/5 rounded-full blur-3xl"
+        className="absolute top-20 right-0 w-96 h-96 bg-white/10 rounded-full blur-3xl"
         style={{
           transform: `translateY(${scrollY * 80}px)`,
           transition: 'transform 0.1s linear'
@@ -98,7 +98,7 @@ const Stats = () => {
           {stats.map((stat, index) => (
             <div
               key={index}
-              className="text-center p-8 bg-card border-2 border-white/10 rounded-xl hover:border-white/30 hover:shadow-[0_20px_60px_rgba(255,255,255,0.08)] hover:-translate-y-2 hover:scale-105 transition-all duration-300 group relative overflow-hidden animate-zoom-in"
+              className="text-center p-8 bg-card border-2 border-white/20 rounded-xl hover:border-white hover:shadow-[0_20px_60px_rgba(255,255,255,0.15)] hover:-translate-y-2 hover:scale-105 transition-all duration-300 group relative overflow-hidden animate-zoom-in"
               style={{
                 animationDelay: `${index * 0.1}s`,
                 opacity: isVisible ? 1 : 0,

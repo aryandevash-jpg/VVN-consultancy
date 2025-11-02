@@ -29,7 +29,7 @@ const Navigation = () => {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-black/95 backdrop-blur-xl shadow-[0_8px_32px_rgba(255,255,255,0.05)] border-b-2 border-white/10"
+          ? "bg-black/95 backdrop-blur-xl shadow-[0_8px_32px_rgba(255,255,255,0.1)] border-b-2 border-white/20"
           : "bg-transparent backdrop-blur-sm"
       }`}
     >
@@ -46,7 +46,7 @@ const Navigation = () => {
             {location.pathname === "/" ? (
               <button
                 onClick={() => scrollToSection("home")}
-                className="text-white/70 hover:text-white/85 hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.4)] font-semibold transition-all duration-300 relative group hover:scale-110"
+                className="text-white/95 hover:text-white hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.8)] font-semibold transition-all duration-300 relative group hover:scale-110"
               >
                 Home
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-white group-hover:w-full transition-all duration-300" />
@@ -54,7 +54,7 @@ const Navigation = () => {
             ) : (
               <Link
                 to="/"
-                className="text-white/70 hover:text-white/85 hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.4)] font-semibold transition-all duration-300 relative group hover:scale-110"
+                className="text-white/95 hover:text-white hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.8)] font-semibold transition-all duration-300 relative group hover:scale-110"
               >
                 Home
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-white group-hover:w-full transition-all duration-300" />
@@ -71,14 +71,14 @@ const Navigation = () => {
               <>
                 <button
                   onClick={() => scrollToSection("process")}
-                  className="text-white/70 hover:text-white/85 hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.4)] font-semibold transition-all duration-300 relative group hover:scale-110"
+                  className="text-white/95 hover:text-white hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.8)] font-semibold transition-all duration-300 relative group hover:scale-110"
                 >
                   Process
                   <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-white group-hover:w-full transition-all duration-300" />
                 </button>
                 <button
                   onClick={() => scrollToSection("testimonials")}
-                  className="text-white/70 hover:text-white/85 hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.4)] font-semibold transition-all duration-300 relative group hover:scale-110"
+                  className="text-white/95 hover:text-white hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.8)] font-semibold transition-all duration-300 relative group hover:scale-110"
                 >
                   Results
                   <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-white group-hover:w-full transition-all duration-300" />
