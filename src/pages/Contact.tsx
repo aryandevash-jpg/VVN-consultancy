@@ -220,7 +220,7 @@ const Contact = () => {
         </section>
 
         {/* Contact Information & Map */}
-        <section className="py-16 px-6 lg:px-8 relative z-10">
+        <section className="pt-16 px-6 lg:px-8 relative z-10">
           <div className="max-w-7xl mx-auto">
             <div className="grid lg:grid-cols-3 gap-8">
               {/* Contact Information Cards */}

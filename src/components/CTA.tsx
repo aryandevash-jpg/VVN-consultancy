@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Sparkles } from "lucide-react";
 import { useState, useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
 
 const CTA = () => {
   const [typedText, setTypedText] = useState("");
@@ -99,13 +100,15 @@ const CTA = () => {
           >
             Book Your Free Strategy Session
           </Button>
-          <Button
-            size="lg"
-            variant="outline"
-            className="text-lg font-bold px-10 py-7 border-2 border-white/30 backdrop-blur-sm bg-white/10 text-white hover:bg-white hover:text-black transition-all hover:-translate-y-1 hover:scale-105"
-          >
-            View Course Catalog
-          </Button>
+          <Link to="/services">
+            <Button
+              size="lg"
+              variant="outline"
+              className="text-lg font-bold px-10 py-7 border-2 border-white/30 backdrop-blur-sm bg-white/10 text-white hover:bg-white hover:text-black transition-all hover:-translate-y-1 hover:scale-105"
+            >
+              View Courses
+            </Button>
+          </Link>
         </div>
 
         {/* Trust Indicators */}

@@ -159,33 +159,33 @@ const CustomCursor = () => {
         >
           {/* Animated splash ripple - Outer circle */}
           <div 
-            className="absolute w-16 h-16 rounded-full border-2 border-white/50 animate-splash"
-            style={{
-              left: "50%",
-              top: "50%",
-              marginLeft: "-32px",
-              marginTop: "-32px",
-            }}
-          ></div>
-          {/* Animated splash ripple - Middle circle */}
-          <div 
-            className="absolute w-12 h-12 rounded-full border border-white/40 animate-splash"
-            style={{
-              left: "50%",
-              top: "50%",
-              marginLeft: "-24px",
-              marginTop: "-24px",
-              animationDelay: "0.1s",
-            }}
-          ></div>
-          {/* Animated splash ripple - Inner bright circle */}
-          <div 
-            className="absolute w-10 h-10 rounded-full bg-white/60 blur-sm animate-splash"
+            className="absolute w-10 h-10 rounded-full border-2 border-white/50 animate-splash"
             style={{
               left: "50%",
               top: "50%",
               marginLeft: "-20px",
               marginTop: "-20px",
+            }}
+          ></div>
+          {/* Animated splash ripple - Middle circle */}
+          <div 
+            className="absolute w-8 h-8 rounded-full border border-white/40 animate-splash"
+            style={{
+              left: "50%",
+              top: "50%",
+              marginLeft: "-16px",
+              marginTop: "-16px",
+              animationDelay: "0.1s",
+            }}
+          ></div>
+          {/* Animated splash ripple - Inner bright circle */}
+          <div 
+            className="absolute w-6 h-6 rounded-full bg-white/60 blur-sm animate-splash"
+            style={{
+              left: "50%",
+              top: "50%",
+              marginLeft: "-12px",
+              marginTop: "-12px",
               animationDelay: "0.05s",
             }}
           ></div>
