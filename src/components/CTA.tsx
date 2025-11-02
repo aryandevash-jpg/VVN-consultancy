@@ -40,12 +40,12 @@ const CTA = () => {
     <section
       ref={sectionRef}
       id="contact"
-      className="py-24 border-b-4 border-white/30 relative overflow-hidden"
+      className="py-24 border-b-4 border-white/15 relative overflow-hidden"
     >
       
       {/* Parallax Gradient Orbs */}
       <div 
-        className="absolute top-20 right-0 w-96 h-96 bg-white/10 rounded-full blur-3xl"
+        className="absolute top-20 right-0 w-96 h-96 bg-white/5 rounded-full blur-3xl"
         style={{
           transform: `translateY(${scrollY * 80}px)`,
           transition: 'transform 0.1s linear'
@@ -61,7 +61,7 @@ const CTA = () => {
 
       <div className="relative z-10 max-w-4xl mx-auto px-6 lg:px-8 text-center">
         {/* Icon */}
-        <div className="inline-flex items-center justify-center w-20 h-20 bg-white/20 border-2 border-white rounded-full mb-8 animate-float">
+        <div className="inline-flex items-center justify-center w-20 h-20 bg-white/10 border-2 border-white/40 rounded-full mb-8 animate-float">
           <Sparkles className="w-10 h-10 text-white" />
         </div>
 
@@ -94,7 +94,7 @@ const CTA = () => {
             <Button
               size="lg"
               variant="outline"
-              className="text-lg font-bold px-10 py-7 border-2 border-white/30 backdrop-blur-sm bg-white/10 text-white hover:bg-white hover:text-black transition-all hover:-translate-y-1 hover:scale-105"
+              className="text-lg font-bold px-10 py-7 border-2 border-white/15 backdrop-blur-sm bg-white/5 text-white hover:bg-white/20 hover:text-black transition-all hover:-translate-y-1 hover:scale-105"
             >
               View Courses
             </Button>

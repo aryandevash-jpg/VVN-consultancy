@@ -54,20 +54,20 @@ const App = () => {
             maxTwinkleSpeed={1}
           />
           <ShootingStars
-            minSpeed={15}
-            maxSpeed={25}
+            minSpeed={1}
+            maxSpeed={5}
             minDelay={800}
             maxDelay={2000}
-            starColor="#FFFFFF"
-            trailColor="#FFFFFF"
-            starWidth={8}
+            starColor="violet"
+            trailColor="violet"
+            starWidth={80}
             starHeight={1}
           />
         </div>
         
         {/* Global Parallax Gradient Orbs */}
         <div 
-          className="fixed top-20 right-0 w-96 h-96 bg-white/10 rounded-full blur-3xl pointer-events-none"
+          className="fixed top-20 right-0 w-96 h-96 bg-white/3 rounded-full blur-3xl pointer-events-none"
           style={{
             transform: `translateY(${scrollY * 0.8}px)`,
             transition: 'transform 0.1s linear',
@@ -75,7 +75,7 @@ const App = () => {
           }}
         />
         <div 
-          className="fixed bottom-20 left-0 w-96 h-96 bg-white/10 rounded-full blur-3xl pointer-events-none"
+          className="fixed bottom-20 left-0 w-96 h-96 bg-white/3 rounded-full blur-3xl pointer-events-none"
           style={{
             transform: `translateY(${-scrollY * 1}px)`,
             transition: 'transform 0.1s linear',

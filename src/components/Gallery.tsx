@@ -92,7 +92,7 @@ const GalleryItem = ({ url, index, onOpen, isVisible }: GalleryItemProps) => {
         onMouseMove={handleMouseMove}
         onMouseLeave={handleMouseLeave}
         onClick={onOpen}
-        className="relative overflow-hidden border-2 border-white/20 hover:border-white/60 backdrop-blur-sm bg-white/5 cursor-pointer transition-all duration-500 hover:shadow-[0_25px_80px_rgba(255,255,255,0.2)]"
+        className="relative overflow-hidden border-2 border-white/10 hover:border-white/30 backdrop-blur-sm bg-white/3 cursor-pointer transition-all duration-500 hover:shadow-[0_25px_80px_rgba(255,255,255,0.1)]"
         style={{
           height: `${height}px`,
           transform: `translate(${position.x}px, ${position.y}px) rotateX(${mousePosition.y}deg) rotateY(${mousePosition.x}deg)`,
@@ -125,13 +125,13 @@ const GalleryItem = ({ url, index, onOpen, isVisible }: GalleryItemProps) => {
 
         {/* Floating icon overlay */}
         <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 z-20 pointer-events-none">
-          <div className="w-16 h-16 rounded-full bg-white/20 backdrop-blur-md border-2 border-white/40 flex items-center justify-center group-hover:scale-110 group-hover:rotate-12 transition-all duration-500">
+          <div className="w-16 h-16 rounded-full bg-white/10 backdrop-blur-md border-2 border-white/20 flex items-center justify-center group-hover:scale-110 group-hover:rotate-12 transition-all duration-500">
             <Maximize2 className="w-8 h-8 text-white" />
           </div>
         </div>
 
         {/* Image number badge */}
-        <div className="absolute top-4 left-4 px-3 py-1 bg-black/50 backdrop-blur-md rounded-full border border-white/30 opacity-0 group-hover:opacity-100 transition-all duration-500 z-20">
+        <div className="absolute top-4 left-4 px-3 py-1 bg-black/50 backdrop-blur-md rounded-full border border-white/15 opacity-0 group-hover:opacity-100 transition-all duration-500 z-20">
           <span className="text-white text-sm font-bold">#{index + 1}</span>
         </div>
 
@@ -216,7 +216,7 @@ const Gallery = () => {
       <section
         id="gallery"
         ref={sectionRef}
-        className="relative py-24 overflow-hidden border-b-2 border-white/20"
+        className="relative py-24 overflow-hidden border-b-2 border-white/10"
       >
         {/* Background Effects */}
         <FloatingParticles />
@@ -224,7 +224,7 @@ const Gallery = () => {
         
         {/* Parallax Gradient Orbs */}
         <div 
-          className="absolute top-20 right-0 w-96 h-96 bg-white/10 rounded-full blur-3xl"
+          className="absolute top-20 right-0 w-96 h-96 bg-white/5 rounded-full blur-3xl"
           style={{
             transform: `translateY(${scrollY * 80}px)`,
             transition: 'transform 0.1s linear'
@@ -241,7 +241,7 @@ const Gallery = () => {
         <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
           {/* Section Header */}
           <div className="text-center max-w-3xl mx-auto mb-16 animate-fade-in">
-            <div className="inline-flex items-center gap-2 bg-white/10 border-2 border-white/30 text-white px-4 py-2 rounded-full text-sm font-bold tracking-wider mb-4 animate-zoom-in">
+            <div className="inline-flex items-center gap-2 bg-white/5 border-2 border-white/15 text-white px-4 py-2 rounded-full text-sm font-bold tracking-wider mb-4 animate-zoom-in">
               <Sparkles className="w-4 h-4 animate-wiggle" />
               OUR GALLERY
             </div>
@@ -268,7 +268,7 @@ const Gallery = () => {
           </div>
 
           {/* Stats Footer */}
-          <div className="text-center mt-16 pt-8 border-t border-white/20">
+          <div className="text-center mt-16 pt-8 border-t border-white/10">
             <div className="flex flex-wrap justify-center items-center gap-8 md:gap-12">
               {[
                 { number: galleryImages.length, label: "Gallery Items" },
@@ -301,7 +301,7 @@ const Gallery = () => {
           {/* Close Button */}
           <button
             onClick={() => setIsLightboxOpen(false)}
-            className="absolute top-6 right-6 w-14 h-14 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-md border-2 border-white/30 hover:border-white/60 flex items-center justify-center transition-all duration-300 group hover:scale-110 hover:rotate-90"
+            className="absolute top-6 right-6 w-14 h-14 rounded-full bg-white/5 hover:bg-white/10 backdrop-blur-md border-2 border-white/15 hover:border-white/30 flex items-center justify-center transition-all duration-300 group hover:scale-110 hover:rotate-90"
           >
             <X className="w-6 h-6 text-white group-hover:scale-110" />
           </button>
@@ -312,7 +312,7 @@ const Gallery = () => {
               e.stopPropagation();
               handleLightboxNavigation('prev');
             }}
-            className="absolute left-6 w-14 h-14 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-md border-2 border-white/30 hover:border-white/60 flex items-center justify-center transition-all duration-300 group hover:scale-110 hover:-translate-x-2"
+            className="absolute left-6 w-14 h-14 rounded-full bg-white/5 hover:bg-white/10 backdrop-blur-md border-2 border-white/15 hover:border-white/30 flex items-center justify-center transition-all duration-300 group hover:scale-110 hover:-translate-x-2"
           >
             <ChevronLeft className="w-6 h-6 text-white group-hover:scale-125" />
           </button>
@@ -322,7 +322,7 @@ const Gallery = () => {
               e.stopPropagation();
               handleLightboxNavigation('next');
             }}
-            className="absolute right-6 w-14 h-14 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-md border-2 border-white/30 hover:border-white/60 flex items-center justify-center transition-all duration-300 group hover:scale-110 hover:translate-x-2"
+            className="absolute right-6 w-14 h-14 rounded-full bg-white/5 hover:bg-white/10 backdrop-blur-md border-2 border-white/15 hover:border-white/30 flex items-center justify-center transition-all duration-300 group hover:scale-110 hover:translate-x-2"
           >
             <ChevronRight className="w-6 h-6 text-white group-hover:scale-125" />
           </button>
@@ -332,7 +332,7 @@ const Gallery = () => {
             className="max-w-6xl max-h-[90vh] w-full relative animate-zoom-in"
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="relative rounded-2xl overflow-hidden border-2 border-white/30 shadow-[0_30px_100px_rgba(255,255,255,0.2)]">
+            <div className="relative rounded-2xl overflow-hidden border-2 border-white/15 shadow-[0_30px_100px_rgba(255,255,255,0.1)]">
               <img
                 src={galleryImages[lightboxIndex]}
                 alt={`Gallery ${lightboxIndex + 1}`}
@@ -346,9 +346,9 @@ const Gallery = () => {
           </div>
 
           {/* Image Counter & Info */}
-          <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 px-6 py-3 bg-black/70 backdrop-blur-md rounded-full border-2 border-white/30 flex items-center gap-4">
+          <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 px-6 py-3 bg-black/70 backdrop-blur-md rounded-full border-2 border-white/15 flex items-center gap-4">
             <span className="text-white font-bold text-lg">{lightboxIndex + 1}</span>
-            <div className="w-px h-6 bg-white/30" />
+            <div className="w-px h-6 bg-white/15" />
             <span className="text-white/70 text-sm">{galleryImages.length}</span>
           </div>
 

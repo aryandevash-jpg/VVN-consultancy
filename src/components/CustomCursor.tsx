@@ -139,11 +139,11 @@ const CustomCursor = () => {
           }}
         >
           {/* Outer glow - large and soft */}
-          <div className="absolute inset-0 w-full h-full rounded-full bg-white/25 blur-2xl"></div>
+          <div className="absolute inset-0 w-full h-full rounded-full bg-white/10 blur-2xl"></div>
           {/* Medium glow */}
-          <div className="absolute inset-0 w-3/4 h-3/4 rounded-full bg-white/20 blur-xl left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"></div>
+          <div className="absolute inset-0 w-3/4 h-3/4 rounded-full bg-white/8 blur-xl left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"></div>
           {/* Inner bright spot */}
-          <div className="absolute inset-0 w-1/2 h-1/2 rounded-full bg-white/15 blur-lg left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"></div>
+          <div className="absolute inset-0 w-1/2 h-1/2 rounded-full bg-white/6 blur-lg left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"></div>
         </div>
       )}
 

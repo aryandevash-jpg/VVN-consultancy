@@ -52,7 +52,7 @@ const Hero = () => {
 
       {/* Parallax Gradient Orbs */}
       <div 
-        className="absolute top-20 right-0 w-96 h-96 bg-white/10 rounded-full blur-3xl"
+        className="absolute top-20 right-0 w-96 h-96 bg-white/5 rounded-full blur-3xl"
         style={{
           transform: `translate(${mousePosition.x * 2}px, ${mousePosition.y * 2}px)`,
           transition: 'transform 0.3s ease-out'
@@ -70,7 +70,7 @@ const Hero = () => {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
           <div className="space-y-8 animate-fade-in-left">
-            <div className="inline-flex items-center gap-2 bg-white/10 border-2 border-white/30 text-white px-4 py-2 rounded-full text-sm font-bold tracking-wider">
+            <div className="inline-flex items-center gap-2 bg-white/5 border-2 border-white/15 text-white px-4 py-2 rounded-full text-sm font-bold tracking-wider">
               <Award className="w-4 h-4" />
               LEADING INDEPENDENT TRADING INSTITUTE
             </div>
@@ -116,7 +116,7 @@ const Hero = () => {
                 size="lg"
                 variant="outline"
                 onClick={() => scrollToSection("services")}
-                className="text-lg font-bold px-8 py-6 border-2 border-white/30 backdrop-blur-sm bg-white/10 text-white hover:bg-white hover:text-black hover:scale-105 transition-all duration-300"
+                className="text-lg font-bold px-8 py-6 border-2 border-white/15 backdrop-blur-sm bg-white/5 text-white hover:bg-white/20 hover:text-black hover:scale-105 transition-all duration-300"
               >
                 Explore Services
               </Button>
@@ -165,7 +165,7 @@ const Hero = () => {
               transition: 'transform 0.3s ease-out'
             }}
           >
-            <div className="relative backdrop-blur-lg bg-white/95 border-4 border-white/20 rounded-2xl shadow-2xl hover:shadow-[0_20px_80px_rgba(255,255,255,0.2)] transition-all duration-300 hover:border-white/40 overflow-hidden">
+            <div className="relative backdrop-blur-lg bg-white/80 border-4 border-white/10 rounded-2xl shadow-2xl hover:shadow-[0_20px_80px_rgba(255,255,255,0.1)] transition-all duration-300 hover:border-white/20 overflow-hidden">
               {/* Decorative Background Elements */}
               <div className="absolute top-4 right-4 w-16 h-16 bg-white/5 rounded-full blur-xl pointer-events-none z-10"></div>
               <div className="absolute bottom-4 left-4 w-20 h-20 bg-white/5 rounded-full blur-xl pointer-events-none z-10"></div>
@@ -185,7 +185,7 @@ const Hero = () => {
               <div className="p-8 pb-8 relative z-20">
 
                  <div className="text-center">
-                  <div className="inline-flex items-center gap-2 bg-white/10 text-black px-4 py-1.5 rounded-full text-sm font-bold">
+                  <div className="inline-flex items-center gap-2 bg-white/5 text-black px-4 py-1.5 rounded-full text-sm font-bold">
                     <Award className="w-4 h-4" />
                     Founder & Expert Trader
                 </div>

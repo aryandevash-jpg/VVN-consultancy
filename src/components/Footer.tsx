@@ -29,7 +29,7 @@ const Footer = () => {
   };
 
   return (
-    <footer ref={footerRef} className="text-white py-16 border-t-2 border-white/20">
+    <footer ref={footerRef} className="text-white py-16 border-t-2 border-white/10">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
           {/* Company Info */}
@@ -112,7 +112,7 @@ const Footer = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 border-t-2 border-white/20 text-center">
+        <div className="pt-8 border-t-2 border-white/10 text-center">
           <p className="text-muted-foreground font-semibold">
             © {new Date().getFullYear()} VVN CONSULTANCY. All rights reserved. | Leading Independent Stock Market (Trading) Institute | Raipur, Chhattisgarh
           </p>
