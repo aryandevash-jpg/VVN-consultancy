@@ -1,0 +1,566 @@
+{
+  "company": {
+    "name": "VVN CONSULTANCY",
+    "legal_type": "Sole Proprietorship",
+    "founder": "Mr. Vinod Kumar Bhagel",
+    "founded_year": 2022,
+    "tagline": "Leading Independent Stock Market (Trading) Institute",
+    "established": "2022",
+    "location": {
+      "city": "Raipur",
+      "state": "Chhattisgarh",
+      "country": "India",
+      "description": "Heart of Chhattisgarh"
+    },
+    "sebi_registration": {
+      "number": "NES/MEM/12798/Ap/397",
+      "type": "SEBI Registered"
+    },
+    "type": "Stock Market Trading Institute",
+    "description": "VVN CONSULTANCY is pleased to introduce itself as a leading independent STOCK MARKET (TRADING) INSTITUTE. We started our journey in the year 2022 in the heart of Chhattisgarh, in Raipur.",
+    "philosophy": "We do not make false promises to anyone.",
+    "taglineDescription": "Best Stock Market Institute & Courses in Raipur"
+  },
+  "about": {
+    "overview": "VVN CONSULTANCY is a Raipur-based sole proprietorship trading institute led by Mr. Vinod Kumar Bhagel. We are pleased to introduce ourselves as a leading independent STOCK MARKET (TRADING) INSTITUTE. We started our journey in 2022 in the heart of Chhattisgarh, in Raipur, to provide the best share market trading training and consultancy. VVN CONSULTANCY is registered under SEBI with Registration No. NES/MEM/12798/Ap/397.",
+    "services_description": "VVN CONSULTANCY provides excellent knowledge related to the stock market and share market, along with practical insights into digital platforms such as Angel One, Groww, Zerodha, Upstox, and more. It offers better strategies for achieving goals, helps in difficult stock market situations, and delivers knowledge step by step. We do not make false promises to anyone.",
+    "supported_platforms": [
+      "Angel One",
+      "Groww",
+      "Zerodha",
+      "Upstox"
+    ],
+    "unique_selling_points": [
+      "Excellent stock market knowledge",
+      "Practical insights into digital trading platforms",
+      "Better strategies for achieving goals",
+      "Help in difficult stock market situations",
+      "Step-by-step knowledge delivery",
+      "No false promises"
+    ]
+  },
+  "vision_mission_values": {
+    "vision": {
+      "title": "Vision",
+      "statement": "Our vision is to become the leading stock market trading institute, renowned for excellence in education and trader development."
+    },
+    "mission": {
+      "title": "Mission",
+      "statement": "Our mission is to deliver exceptional stock market trading education and resources to help our students become confident and successful traders."
+    },
+    "values": {
+      "title": "Values",
+      "statement": "We uphold integrity, innovation, empowerment, ethical trading, continuous learning, discipline, resilience, excellence, support, and community to create confident, successful traders.",
+      "core_values": [
+        "Integrity",
+        "Innovation",
+        "Empowerment",
+        "Ethical Trading",
+        "Continuous Learning",
+        "Discipline",
+        "Resilience",
+        "Excellence",
+        "Support",
+        "Community"
+      ]
+    }
+  },
+  "key_details": {
+    "table_title": "Key Details of VVN Consultancy",
+    "details": [
+      {
+        "attribute": "Name",
+        "value": "VVN Consultancy"
+      },
+      {
+        "attribute": "Founder",
+        "value": "Mr. Vinod Kumar Bhagel"
+      },
+      {
+        "attribute": "Focus Area",
+        "value": "Stock market trading education and investment strategies"
+      },
+      {
+        "attribute": "Services Offered",
+        "value": "Stock market training, investment courses, trading strategies, technical and fundamental analysis"
+      },
+      {
+        "attribute": "Experience",
+        "value": "Over 10 years in the stock market industry"
+      },
+      {
+        "attribute": "Regulatory Approval",
+        "value": "SEBI Reg No. - MES/MEM/12798/AP/397"
+      },
+      {
+        "attribute": "Location",
+        "value": "Raipur, Chhattisgarh"
+      }
+    ]
+  },
+  "founder_message": {
+    "title": "About Me",
+    "name": "Vinod Kumar Bhagel",
+    "greeting": "Hey there! I'm Vinod Kumar Bhagel, and I'm here to simplify your stock market journey.",
+    "full_message": [
+      "Throughout my years in trading, I've seen many people dive into the market with big dreams, but they often end up feeling confused, lost, and frustrated when things don't go as planned. The stock market isn't about quick wins—it's about understanding the game, managing risks, and staying consistent. That's exactly what I help my students achieve.",
+      "My journey in trading wasn't always smooth. I faced challenges, made mistakes, and learned the hard way. But instead of giving up, I chose to master the market. Over the years, I've developed strategies that actually work—not just theories that sound good on paper. That's why I founded VVN CONSULTANCY—to share real, practical knowledge that helps traders grow with confidence.",
+      "I believe anyone can succeed in the stock market with the right guidance and mindset. My approach is simple, honest, and transparent—no false promises, just real learning. If you're ready to take control of your financial future, let's make it happen together."
+    ],
+    "key_points": [
+      "Helps students avoid common market pitfalls",
+      "Focus on understanding, risk management, and consistency",
+      "Personal experience with challenges and mistakes",
+      "Developed practical, working strategies",
+      "Founded VVN CONSULTANCY to share real knowledge",
+      "Simple, honest, and transparent approach",
+      "No false promises policy"
+    ],
+    "philosophy": {
+      "belief": "Anyone can succeed in the stock market with the right guidance and mindset",
+      "approach": "Simple, honest, and transparent",
+      "promise": "Real learning, not false promises"
+    }
+  },
+  "educational_content": {
+    "comparison": {
+      "title": "Stock Market Trading vs. Stock Market Investment",
+      "sections": [
+        {
+          "type": "Trading",
+          "title": "Stock Market Trading",
+          "description": "Trading is fast-paced and focused on quick profits. It requires constant monitoring and a keen understanding of market movements.",
+          "characteristics": [
+            "Fast-paced",
+            "Quick profits focused",
+            "Requires constant monitoring",
+            "Needs keen understanding of market movements"
+          ]
+        },
+        {
+          "type": "Investment",
+          "title": "Stock Market Investment",
+          "description": "Investment is a more patient approach, aiming for long-term financial growth. It's about choosing solid assets and staying the course.",
+          "characteristics": [
+            "Patient approach",
+            "Long-term financial growth",
+            "Focus on solid assets",
+            "Stay the course strategy"
+          ]
+        }
+      ],
+      "conclusion": "Both trading and investment have their pros and cons. The best approach depends on your individual goals, risk tolerance, and time horizon.",
+      "decision_factors": [
+        "Individual goals",
+        "Risk tolerance",
+        "Time horizon"
+      ]
+    }
+  },
+  "meta": {
+    "page_title": "About VVN Consultancy",
+    "page_sections": [
+      "Company Overview",
+      "Vision, Mission & Values",
+      "Key Details",
+      "Founder Message",
+      "Trading vs Investment Comparison"
+    ]
+  },
+  
+  "values": {
+    "mission": [
+      "Provides excellent knowledge related to the stock market",
+      "Offers better strategies for achieving goals",
+      "Helps in difficult stock market situations",
+      "Delivers knowledge step by step"
+    ],
+    "approach": "Understanding how the stock market works is essential for any investor. We cover fundamental topics with well-structured, easy-to-understand information to help make informed financial decisions.",
+    "quote": "Experience is the best teacher. While books provide theoretical knowledge, learning from experienced traders ensures practical understanding and real-world application."
+  },
+  
+  "targetAudience": [
+    {
+      "type": "Beginners",
+      "description": "Exploring investment opportunities"
+    },
+    {
+      "type": "Experienced Traders",
+      "description": "Looking to refine their strategies"
+    },
+    {
+      "type": "Aspiring Professionals",
+      "description": "Seeking financial independence through trading"
+    }
+  ],
+  
+  "courseTopics": [
+    {
+      "id": 1,
+      "title": "Stock Market Fundamentals",
+      "description": "Understanding how the stock market works is essential for any investor. We cover fundamental topics such as stock exchanges, market indices, trading accounts, and the differences between investing and trading.",
+      "level": "Basic to Advanced",
+      "coverage": [
+        "Stock exchanges",
+        "Market indices",
+        "Trading accounts",
+        "Differences between investing and trading"
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Technical Analysis",
+      "description": "Learn how to read charts, analyze price patterns, and use indicators like Moving Averages, RSI, and MACD. Technical analysis helps traders make data-driven decisions and identify potential market trends.",
+      "level": "Basic to Advanced",
+      "coverage": [
+        "Chart reading",
+        "Price pattern analysis",
+        "Moving Averages",
+        "RSI (Relative Strength Index)",
+        "MACD (Moving Average Convergence Divergence)",
+        "Market trend identification"
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Fundamental Analysis",
+      "description": "We provide detailed information on evaluating a company's financial health, analyzing balance sheets, and understanding key financial ratios to select the best stocks for long-term growth.",
+      "level": "Basic to Advanced",
+      "coverage": [
+        "Company financial health evaluation",
+        "Balance sheet analysis",
+        "Key financial ratios",
+        "Stock selection for long-term growth"
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Intraday & Swing Trading",
+      "description": "For those interested in short-term trading, we share techniques to capitalize on daily price movements and medium-term trends. Learn how to manage risks and maximize profits effectively.",
+      "level": "Intermediate to Advanced",
+      "coverage": [
+        "Daily price movement techniques",
+        "Medium-term trend analysis",
+        "Risk management",
+        "Profit maximization strategies"
+      ]
+    },
+    {
+      "id": 5,
+      "title": "Futures & Options (Derivatives)",
+      "description": "We break down the complexities of futures and options trading, helping traders understand hedging strategies, leverage, and risk management in the derivatives market.",
+      "level": "Advanced",
+      "coverage": [
+        "Futures trading",
+        "Options trading",
+        "Hedging strategies",
+        "Leverage understanding",
+        "Derivatives market risk management"
+      ]
+    },
+    {
+      "id": 6,
+      "title": "Trading Psychology & Risk Management",
+      "description": "Controlling emotions and managing risks are crucial aspects of successful trading. We offer insights into how professional traders handle losses, maintain discipline, and stay consistent in their strategies.",
+      "level": "All Levels",
+      "coverage": [
+        "Emotional control",
+        "Loss management",
+        "Trading discipline",
+        "Strategy consistency",
+        "Professional trading mindset"
+      ]
+    }
+  ],
+  
+  "learningPath": {
+    "title": "Journey to Success - Streamlined Process",
+    "steps": [
+      {
+        "step": 1,
+        "title": "Choose Course",
+        "description": "Select the right course for your trading goals"
+      },
+      {
+        "step": 2,
+        "title": "Learn from Experts",
+        "description": "Gain insights from seasoned traders"
+      },
+      {
+        "step": 3,
+        "title": "Practice Trading",
+        "description": "Practice with live market simulations"
+      },
+      {
+        "step": 4,
+        "title": "Build Strategy",
+        "description": "Create a personalized trading plan"
+      },
+      {
+        "step": 5,
+        "title": "Start Trading",
+        "description": "Apply skills and make informed decisions"
+      }
+    ]
+  },
+  
+  "benefits": [
+    "Gain knowledge, skill, and financial independence",
+    "Learn from fundamental concepts to advanced technical analysis",
+    "Practical understanding and real-world application from experienced traders",
+    "Basic to advanced knowledge for investment and trading with in-depth coverage",
+    "Well-structured, easy-to-understand information",
+    "Step-by-step knowledge delivery"
+  ],
+  
+  "uniqueSellingPoints": [
+    "Leading independent institute (not affiliated with any broker)",
+    "Established in 2022 in the heart of Chhattisgarh",
+    "No false promises policy",
+    "Learning from experienced traders",
+    "Practical, real-world application focus",
+    "Comprehensive coverage from basic to advanced levels",
+    "Live market simulations",
+    "Personalized trading plan development"
+  ],
+  
+  "courses": {
+    "note": "Specific course details (pricing, duration, enrollment) need to be fetched from individual course pages or contact forms on the website",
+    "availableCourses": [
+      "Stock Market Fundamentals Course",
+      "Technical Analysis Course",
+      "Fundamental Analysis Course",
+      "Intraday & Swing Trading Course",
+      "Futures & Options Course",
+      "Trading Psychology & Risk Management Course",
+      "Comprehensive Stock Market Course (possibly combining all topics)"
+    ]
+  },
+  
+  "contactInfo": {
+    "website": "https://www.vvncosultancy.com/",
+    "note": "Additional contact details (phone, email, address) should be available on the website's contact page"
+  },
+  
+  "websiteSections": {
+    "hero": {
+      "title": "Best Stock Market Institute & Courses in Raipur",
+      "subtitle": "Leading Independent Stock Market Trading Institute"
+    },
+    "about": {
+      "heading": "About VVN CONSULTANCY",
+      "content": "Company introduction and values"
+    },
+    "services": {
+      "heading": "What We Offer",
+      "items": "Six main topic areas covered above"
+    },
+    "whyChooseUs": {
+      "heading": "Why Stock Market Trading?",
+      "description": "More than just making money—it's about gaining knowledge, skill, and financial independence"
+    },
+    "learningProcess": {
+      "heading": "Journey to Success",
+      "description": "5-step streamlined process"
+    }
+  },
+  
+  "seoKeywords": [
+    "Stock Market Institute Raipur",
+    "Trading Courses Chhattisgarh",
+    "Technical Analysis Training",
+    "Futures and Options Course",
+    "Stock Market Education",
+    "Trading Institute India",
+    "Intraday Trading Course",
+    "Fundamental Analysis Course"
+  ],
+  
+  "detailedCourses": [
+      {
+        "id": 1,
+        "title": "Options Trading With Technical Analysis",
+        "duration": "4 Months",
+        "language": "Hindi",
+        "pricing": {
+          "original": 70000,
+          "discounted": 49000,
+          "discount_percentage": 30,
+          "currency": "INR"
+        },
+        "short_description": "Learn Options trading in indices/stocks with technical analysis strategies by our Experts to generate a consistent income.",
+        "features": [
+          "Maximum 10 Registrations per batch",
+          "LIVE Sessions",
+          "Q&A sessions",
+          "NCFM-NISM Preparation",
+          "Lifetime support for career in Indian stock market trading"
+        ],
+        "modules": [
+          {
+            "name": "Futures & Options Trading Module",
+            "topics": [
+              "Future & options trading system",
+              "Clearing & settlement systems",
+              "Margins and advanced options strategies",
+              "Regulatory frameworks",
+              "Option chain analysis (Open Interest and Volume interpretation)",
+              "Volatility in derivatives markets",
+              "Cash price prediction in futures",
+              "Statistical data analysis (PCR, change in OI, Buying-Selling pressure, ATP)",
+              "Options Writing strategies"
+            ]
+          },
+          {
+            "name": "Customized Trading Strategies",
+            "strategies": [
+              "Ichimoku Cloud Trading Strategy",
+              "Heiken-ashi Momentum Trading Strategy"
+            ]
+          }
+        ],
+        "learning_outcomes": [
+          "Overall Trend Analysis (Dow-Elliot Wave Theory & Market Structure)",
+          "Demand Supply Area (Static and Dynamic S/R areas of Value, Fibonacci)",
+          "Buying Selling Pressure (Candlestick-Chart patterns, Volume spread analysis)",
+          "Relative Strength (Indicators & oscillators)",
+          "Risk Management & Trading Psychology"
+        ],
+        "delivery_method": "Theory and practical sessions during live market",
+        "target_audience": "Traders facing difficulties in generating consistent profit or seeking financial independence"
+      },
+      {
+        "id": 2,
+        "title": "Advanced Technical Analysis Certification Course",
+        "duration": "4 Months",
+        "language": "Hindi",
+        "pricing": {
+          "original": 70000,
+          "discounted": 49000,
+          "discount_percentage": 30,
+          "currency": "INR"
+        },
+        "short_description": "Advanced technical analysis course in Ahmedabad to help you gain the knowledge and skills necessary to succeed in the stock trading world.",
+        "features": [
+          "Maximum 10 Registrations per batch",
+          "LIVE Sessions",
+          "Q&A sessions",
+          "NCFM-NISM Preparation",
+          "Lifetime support for career in Indian stock market trading"
+        ],
+        "modules": [
+          {
+            "name": "Technical Analysis Module",
+            "description": "Method used to predict future prices on the basis of historical price, volume, and open interest",
+            "topics": [
+              "Price prediction based on historical data",
+              "Intraday, short-term, and long-term call generation",
+              "Market trend interpretation through Price Analysis",
+              "Analysis applicable to stocks, commodities, futures, options",
+              "Demand and supply force analysis",
+              "Live practical trading strategies"
+            ],
+            "benefits": [
+              "Generate intraday calls",
+              "Generate short-term calls",
+              "Generate long-term calls",
+              "Easy market trend interpretation"
+            ]
+          },
+          {
+            "name": "Futures & Advanced Options Trading Module",
+            "topics": [
+              "Future & options trading system",
+              "Clearing & settlement systems",
+              "Margins and advanced options strategies",
+              "Regulatory frameworks",
+              "Option chain analysis (Open Interest and Volume interpretation)",
+              "Volatility in derivatives markets",
+              "Cash price prediction in futures",
+              "Statistical data analysis (PCR, change in OI, Buying-Selling pressure, ATP)",
+              "Options Writing strategies"
+            ]
+          }
+        ],
+        "learning_outcomes": [
+          "Overall Trend Analysis (Dow-Elliot Wave Theory & Market Structure)",
+          "Demand Supply Area (Static and Dynamic S/R areas of Value, Fibonacci)",
+          "Buying Selling Pressure (Candlestick-Chart patterns, Volume spread analysis)",
+          "Relative Strength (Indicators & oscillators)",
+          "Risk Management & Trading Psychology"
+        ],
+        "delivery_method": "Theory and practical sessions during live market",
+        "target_audience": "Traders facing difficulties in generating consistent profit or seeking financial independence"
+      },
+      {
+        "id": 3,
+        "title": "Intraday Trading in Index Options",
+        "duration": "4 Months",
+        "language": "Hindi",
+        "pricing": {
+          "original": 70000,
+          "discounted": 49000,
+          "discount_percentage": 30,
+          "currency": "INR"
+        },
+        "short_description": "Advanced technical analysis course in Ahmedabad to help you gain the knowledge and skills necessary to succeed in the stock trading world.",
+        "features": [
+          "Maximum 10 Registrations per batch",
+          "LIVE Sessions",
+          "Q&A sessions",
+          "NCFM-NISM Preparation",
+          "Lifetime support for career in Indian stock market trading"
+        ],
+        "modules": [
+          {
+            "name": "Technical Analysis Module",
+            "description": "Method used to predict future prices on the basis of historical price, volume, and open interest",
+            "topics": [
+              "Price prediction based on historical data",
+              "Intraday, short-term, and long-term call generation",
+              "Market trend interpretation through Price Analysis",
+              "Analysis applicable to stocks, commodities, futures, options",
+              "Demand and supply force analysis",
+              "Live practical trading strategies"
+            ],
+            "benefits": [
+              "Generate intraday calls",
+              "Generate short-term calls",
+              "Generate long-term calls",
+              "Easy market trend interpretation"
+            ]
+          },
+          {
+            "name": "Futures & Advanced Options Trading Module",
+            "topics": [
+              "Future & options trading system",
+              "Clearing & settlement systems",
+              "Margins and advanced options strategies",
+              "Regulatory frameworks",
+              "Option chain analysis (Open Interest and Volume interpretation)",
+              "Volatility in derivatives markets",
+              "Cash price prediction in futures",
+              "Statistical data analysis (PCR, change in OI, Buying-Selling pressure, ATP)",
+              "Options Writing strategies"
+            ]
+          }
+        ],
+        "learning_outcomes": [
+          "Overall Trend Analysis (Dow-Elliot Wave Theory & Market Structure)",
+          "Demand Supply Area (Static and Dynamic S/R areas of Value, Fibonacci)",
+          "Buying Selling Pressure (Candlestick-Chart patterns, Volume spread analysis)",
+          "Relative Strength (Indicators & oscillators)",
+          "Risk Management & Trading Psychology"
+        ],
+        "delivery_method": "Theory and practical sessions during live market",
+        "target_audience": "Traders facing difficulties in generating consistent profit or seeking financial independence"
+      }
+    ],
+  "common_features": {
+    "batch_size": "Maximum 10 Registrations per batch",
+    "session_type": "LIVE Sessions with Q&A",
+    "certification_prep": "NCFM-NISM Preparation",
+    "support": "Lifetime support",
+    "location": "Ahemdabad"
+  }
+}

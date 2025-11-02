@@ -59,24 +59,24 @@ const Team = () => {
     <section
       ref={sectionRef}
       id="team"
-      className="py-24 bg-gradient-to-b from-[hsl(228,60%,8%)] to-[hsl(228,84%,5%)] border-b-2 border-primary/30 relative overflow-hidden"
+      className="py-24 bg-black border-b-2 border-white/20 relative overflow-hidden"
     >
       {/* Background Animation */}
       <div className="absolute inset-0 opacity-30">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/20 rounded-full blur-3xl animate-float" />
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-accent/20 rounded-full blur-3xl animate-float" style={{ animationDelay: '1s' }} />
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-white/4 rounded-full blur-3xl animate-float" />
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-white/4 rounded-full blur-3xl animate-float" style={{ animationDelay: '1s' }} />
       </div>
 
       <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 bg-primary/10 border-2 border-primary/30 text-primary px-4 py-2 rounded-full text-sm font-bold tracking-wider mb-4">
+          <div className="inline-flex items-center gap-2 bg-white/10 border-2 border-white/30 text-white px-4 py-2 rounded-full text-sm font-bold tracking-wider mb-4">
             OUR TEAM
           </div>
           <h2 className="text-4xl lg:text-5xl font-black text-white mb-4 tracking-tight">
             Meet the Founding Members
           </h2>
-          <p className="text-xl text-white/70">
+          <p className="text-xl text-white opacity-95">
             Expert professionals dedicated to your trading success
           </p>
         </div>
@@ -86,36 +86,53 @@ const Team = () => {
           {teamMembers.map((member, index) => (
             <Card
               key={index}
-              className="group relative overflow-hidden p-8 border-2 border-primary/20 hover:border-primary/60 backdrop-blur-sm bg-white/5 transition-all duration-500 hover:-translate-y-3 hover:shadow-[0_25px_70px_rgba(99,102,241,0.4)] hover:bg-white/10"
+              className="group relative overflow-hidden p-8 border-2 border-white/20 hover:border-white/60 backdrop-blur-sm bg-white/5 transition-all duration-500 hover:-translate-y-3 hover:shadow-[0_25px_70px_rgba(255,255,255,0.15)] hover:bg-white/10 hover:rotate-1"
               style={{
                 opacity: isVisible ? 1 : 0,
-                transform: isVisible ? 'translateY(0) scale(1)' : 'translateY(50px) scale(0.95)',
-                transition: `all 0.8s ease-out ${index * 0.15}s`
+                transform: isVisible 
+                  ? 'translateY(0) scale(1) rotate(0deg)' 
+                  : 'translateY(50px) scale(0.95) rotate(-3deg)',
+                transition: `all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) ${index * 0.12}s`
+              }}
+              onMouseMove={(e) => {
+                const card = e.currentTarget;
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                const rotateX = (y - centerY) / 15;
+                const rotateY = (centerX - x) / 15;
+                card.style.transform = `translateY(-12px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`;
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = 'translateY(0) rotateX(0) rotateY(0) scale(1)';
               }}
             >
               {/* Gradient overlay on hover */}
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <div className="absolute inset-0 bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               
               {/* Top glow bar */}
-              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary to-accent scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
+              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-white to-white/80 scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
 
               {/* Image container with glow effect */}
-              <div className="relative mx-auto w-48 h-48 mb-6 overflow-hidden rounded-full border-4 border-primary/30 group-hover:border-primary/70 transition-all duration-500 group-hover:shadow-[0_0_40px_rgba(99,102,241,0.6)]">
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-accent/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <div className="relative mx-auto w-48 h-48 mb-6 overflow-hidden rounded-full border-4 border-white/30 group-hover:border-white/70 transition-all duration-500 group-hover:shadow-[0_0_50px_rgba(255,255,255,0.4)] animate-bounce-in" style={{ animationDelay: `${index * 0.15 + 0.3}s` }}>
+                <div className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 <img
                   src={member.image}
                   alt={member.name}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  className="w-full h-full object-cover group-hover:scale-125 transition-transform duration-700"
                   loading="lazy"
                 />
+                <div className="absolute inset-0 bg-gradient-to-t from-white/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               </div>
 
               {/* Member Info */}
               <div className="text-center space-y-3 relative z-10">
-                <h3 className="text-2xl font-black text-white group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-primary group-hover:to-accent transition-all duration-300">
+                <h3 className="text-2xl font-black text-white group-hover:text-white transition-all duration-300">
                   {member.name}
                 </h3>
-                <p className="text-primary/80 font-semibold group-hover:text-primary transition-colors">
+                <p className="text-white/90 font-semibold group-hover:text-white transition-colors">
                   {member.designation}
                 </p>
               </div>
@@ -127,17 +144,17 @@ const Team = () => {
                     href={member.linkedin}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-10 h-10 rounded-full bg-primary/10 border-2 border-primary/30 flex items-center justify-center hover:bg-primary hover:border-primary transition-all hover:scale-110"
+                    className="w-10 h-10 rounded-full bg-white/10 border-2 border-white/30 flex items-center justify-center hover:bg-white hover:border-white transition-all hover:scale-110"
                   >
-                    <Linkedin className="w-5 h-5 text-primary group-hover:text-white" />
+                    <Linkedin className="w-5 h-5 text-white group-hover:text-black" />
                   </a>
                 )}
                 {member.email && (
                   <a
                     href={`mailto:${member.email}`}
-                    className="w-10 h-10 rounded-full bg-primary/10 border-2 border-primary/30 flex items-center justify-center hover:bg-primary hover:border-primary transition-all hover:scale-110"
+                    className="w-10 h-10 rounded-full bg-white/10 border-2 border-white/30 flex items-center justify-center hover:bg-white hover:border-white transition-all hover:scale-110"
                   >
-                    <Mail className="w-5 h-5 text-primary group-hover:text-white" />
+                    <Mail className="w-5 h-5 text-white group-hover:text-black" />
                   </a>
                 )}
               </div>

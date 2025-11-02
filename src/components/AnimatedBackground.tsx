@@ -40,8 +40,8 @@ export const AnimatedBackground = ({ className = "" }: AnimatedBackgroundProps) 
         y: Math.random() * canvas.height,
         vx: (Math.random() - 0.5) * 0.5,
         vy: (Math.random() - 0.5) * 0.5,
-        radius: Math.random() * 2 + 1,
-        opacity: Math.random() * 0.5 + 0.2,
+        radius: Math.random() * 3 + 1.5,
+        opacity: Math.random() * 0.6 + 0.4,
       });
     }
 
@@ -91,7 +91,7 @@ export const AnimatedBackground = ({ className = "" }: AnimatedBackgroundProps) 
         // Draw particle
         ctx.beginPath();
         ctx.arc(particle.x, particle.y, particle.radius, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(99, 102, 241, ${particle.opacity})`;
+        ctx.fillStyle = `rgba(255, 255, 255, ${particle.opacity * 0.6})`;
         ctx.fill();
       });
 
@@ -106,8 +106,8 @@ export const AnimatedBackground = ({ className = "" }: AnimatedBackgroundProps) 
             ctx.beginPath();
             ctx.moveTo(particle1.x, particle1.y);
             ctx.lineTo(particle2.x, particle2.y);
-            ctx.strokeStyle = `rgba(99, 102, 241, ${0.3 * (1 - distance / 150)})`;
-            ctx.lineWidth = 0.5;
+            ctx.strokeStyle = `rgba(255, 255, 255, ${0.3 * (1 - distance / 150)})`;
+            ctx.lineWidth = 1;
             ctx.stroke();
           }
         });

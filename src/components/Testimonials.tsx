@@ -70,18 +70,18 @@ const Testimonials = () => {
     <section 
       ref={sectionRef}
       id="testimonials" 
-      className="py-24 bg-gradient-to-b from-[hsl(228,84%,5%)] to-[hsl(228,60%,8%)] border-b-2 border-primary/30 relative overflow-hidden"
+      className="py-24 bg-black border-b-2 border-white/20 relative overflow-hidden"
     >
       {/* Parallax Background Elements */}
       <div 
-        className="absolute top-0 left-0 w-72 h-72 bg-primary/5 rounded-full blur-3xl"
+        className="absolute top-0 left-0 w-72 h-72 bg-white/4 rounded-full blur-3xl"
         style={{
           transform: `translateY(${scrollY * 120}px)`,
           transition: 'transform 0.1s linear'
         }}
       />
       <div 
-        className="absolute bottom-0 right-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl"
+        className="absolute bottom-0 right-0 w-96 h-96 bg-white/4 rounded-full blur-3xl"
         style={{
           transform: `translateY(${-scrollY * 80}px)`,
           transition: 'transform 0.1s linear'
@@ -91,13 +91,13 @@ const Testimonials = () => {
       <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 bg-primary/10 border-2 border-primary/30 text-primary px-4 py-2 rounded-full text-sm font-bold tracking-wider mb-4">
+          <div className="inline-flex items-center gap-2 bg-white/10 border-2 border-white/30 text-white px-4 py-2 rounded-full text-sm font-bold tracking-wider mb-4">
             SUCCESS STORIES
           </div>
           <h2 className="text-4xl lg:text-5xl font-black text-white mb-4 tracking-tight">
             Real Results from Real Traders
           </h2>
-          <p className="text-xl text-white/70">
+          <p className="text-xl text-white opacity-95">
             Join hundreds of successful traders who transformed their financial future with us
           </p>
         </div>
@@ -107,33 +107,45 @@ const Testimonials = () => {
           {testimonials.map((testimonial, index) => (
             <Card
               key={index}
-              className="p-8 border-2 border-primary/20 hover:border-primary/60 backdrop-blur-sm bg-white/5 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_60px_rgba(99,102,241,0.3)] hover:bg-white/10"
+              className="group p-8 border-2 border-white/20 hover:border-white/60 backdrop-blur-sm bg-white/5 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_60px_rgba(255,255,255,0.15)] hover:bg-white/10 hover:rotate-1"
               style={{
                 opacity: isVisible ? 1 : 0,
-                transform: isVisible ? 'translateY(0) scale(1)' : 'translateY(50px) scale(0.95)',
-                transition: `all 0.6s ease-out ${index * 0.1}s`
+                transform: isVisible 
+                  ? 'translateY(0) scale(1) rotate(0deg)' 
+                  : 'translateY(50px) scale(0.95) rotate(-2deg)',
+                transition: `all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) ${index * 0.1}s`
               }}
             >
+              {/* Animated glow background */}
+              <div className="absolute inset-0 bg-white/0 group-hover:bg-white/5 rounded-lg transition-all duration-500 blur-xl" />
+              
               {/* Rating Stars */}
-              <div className="flex gap-1 mb-6">
+              <div className="flex gap-1 mb-6 relative z-10">
                 {[...Array(testimonial.rating)].map((_, i) => (
-                  <Star key={i} className="w-5 h-5 fill-yellow-400 text-yellow-400" />
+                  <Star 
+                    key={i} 
+                    className="w-5 h-5 fill-white text-white group-hover:scale-110 group-hover:animate-wiggle transition-all duration-300" 
+                    style={{ animationDelay: `${i * 0.05}s` }}
+                  />
                 ))}
               </div>
 
               {/* Testimonial Text */}
-              <p className="text-white leading-relaxed mb-8">{testimonial.text}</p>
+              <p className="text-white leading-relaxed mb-8 group-hover:text-white/95 transition-colors relative z-10">{testimonial.text}</p>
 
               {/* Author Info */}
-              <div className="flex items-center gap-4">
-                <div className="w-14 h-14 bg-primary rounded-full flex items-center justify-center text-white font-bold text-lg shadow-[0_0_20px_rgba(99,102,241,0.5)]">
-                  {testimonial.initials}
+              <div className="flex items-center gap-4 relative z-10">
+                <div className="w-14 h-14 bg-white rounded-full flex items-center justify-center text-black font-bold text-lg shadow-[0_0_20px_rgba(255,255,255,0.3)] group-hover:scale-110 group-hover:shadow-[0_0_30px_rgba(255,255,255,0.5)] group-hover:rotate-6 transition-all duration-300">
+                  <span className="group-hover:animate-wiggle inline-block">{testimonial.initials}</span>
                 </div>
                 <div>
-                  <h4 className="font-black text-white">{testimonial.name}</h4>
-                  <p className="text-sm text-white/60">{testimonial.role}</p>
+                  <h4 className="font-black text-white group-hover:scale-105 transition-transform">{testimonial.name}</h4>
+                  <p className="text-sm text-white/90 group-hover:text-white transition-colors">{testimonial.role}</p>
                 </div>
               </div>
+              
+              {/* Quote decoration */}
+              <div className="absolute top-4 right-4 text-white/10 text-6xl font-bold leading-none group-hover:text-white/20 transition-colors">"</div>
             </Card>
           ))}
         </div>

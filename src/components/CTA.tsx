@@ -39,18 +39,18 @@ const CTA = () => {
     <section
       ref={sectionRef}
       id="contact"
-      className="py-24 bg-gradient-to-br from-[hsl(228,84%,5%)] via-[hsl(228,60%,8%)] to-[hsl(228,84%,5%)] border-b-4 border-primary relative overflow-hidden"
+      className="py-24 bg-black border-b-4 border-white/30 relative overflow-hidden"
     >
       {/* Background Effects with Parallax */}
       <div 
-        className="absolute top-0 left-1/4 w-96 h-96 bg-primary/20 rounded-full blur-3xl animate-pulse"
+        className="absolute top-0 left-1/4 w-96 h-96 bg-white/6 rounded-full blur-3xl animate-pulse"
         style={{
           transform: `translateY(${scrollY * 60}px)`,
           transition: 'transform 0.1s linear'
         }}
       />
       <div 
-        className="absolute bottom-0 right-1/4 w-96 h-96 bg-accent/10 rounded-full blur-3xl animate-pulse delay-1000"
+        className="absolute bottom-0 right-1/4 w-96 h-96 bg-white/4 rounded-full blur-3xl animate-pulse delay-1000"
         style={{
           transform: `translateY(${-scrollY * 80}px)`,
           transition: 'transform 0.1s linear'
@@ -59,10 +59,10 @@ const CTA = () => {
 
       {/* Animated Grid */}
       <div
-        className="absolute inset-0 opacity-10"
+        className="absolute inset-0 opacity-30"
         style={{
           backgroundImage:
-            "linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)",
+            "linear-gradient(rgba(255,255,255,0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.08) 1px, transparent 1px)",
           backgroundSize: "50px 50px",
           animation: "grid-move 20s linear infinite",
         }}
@@ -70,8 +70,8 @@ const CTA = () => {
 
       <div className="relative z-10 max-w-4xl mx-auto px-6 lg:px-8 text-center">
         {/* Icon */}
-        <div className="inline-flex items-center justify-center w-20 h-20 bg-primary/20 border-2 border-primary rounded-full mb-8 animate-float">
-          <Sparkles className="w-10 h-10 text-primary" />
+        <div className="inline-flex items-center justify-center w-20 h-20 bg-white/20 border-2 border-white rounded-full mb-8 animate-float">
+          <Sparkles className="w-10 h-10 text-white" />
         </div>
 
         {/* Heading */}
@@ -80,9 +80,8 @@ const CTA = () => {
         </h2>
 
         {/* Description */}
-        <p className="text-xl lg:text-2xl text-white/80 mb-12 max-w-2xl mx-auto leading-relaxed">
-          Join 500+ successful traders who have achieved consistent profitability with our
-          expert-led training programs.
+        <p className="text-xl lg:text-2xl text-white mb-12 max-w-2xl mx-auto leading-relaxed opacity-95">
+          Join 3,200+ traders who have achieved financial independence through proven swing trading methodologies and expert-led training programs.
         </p>
 
         {/* CTA Buttons */}
@@ -96,14 +95,14 @@ const CTA = () => {
         >
           <Button
             size="lg"
-            className="text-lg font-bold px-10 py-7 bg-gradient-to-r from-primary to-accent text-white shadow-[0_10px_40px_rgba(99,102,241,0.4)] hover:shadow-[0_10px_60px_rgba(99,102,241,0.6)] transition-all hover:-translate-y-1 hover:scale-105"
+            className="text-lg font-bold px-10 py-7 bg-gradient-to-r from-white to-white/80 text-black shadow-[0_10px_40px_rgba(255,255,255,0.2)] hover:shadow-[0_10px_60px_rgba(255,255,255,0.3)] transition-all hover:-translate-y-1 hover:scale-105"
           >
             Book Your Free Strategy Session
           </Button>
           <Button
             size="lg"
             variant="outline"
-            className="text-lg font-bold px-10 py-7 border-2 border-white/30 backdrop-blur-sm bg-white/10 text-white hover:bg-white hover:text-[hsl(228,84%,5%)] transition-all hover:-translate-y-1 hover:scale-105"
+            className="text-lg font-bold px-10 py-7 border-2 border-white/30 backdrop-blur-sm bg-white/10 text-white hover:bg-white hover:text-black transition-all hover:-translate-y-1 hover:scale-105"
           >
             View Course Catalog
           </Button>
@@ -112,22 +111,21 @@ const CTA = () => {
         {/* Trust Indicators */}
         <div className="mt-16 pt-12 border-t-2 border-white/10">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            <div>
-              <div className="text-3xl font-black text-white mb-1">100%</div>
-              <div className="text-sm text-white/60 font-semibold">Money-Back Guarantee</div>
-            </div>
-            <div>
-              <div className="text-3xl font-black text-white mb-1">24/7</div>
-              <div className="text-sm text-white/60 font-semibold">Support Available</div>
-            </div>
-            <div>
-              <div className="text-3xl font-black text-white mb-1">Live</div>
-              <div className="text-sm text-white/60 font-semibold">Trading Sessions</div>
-            </div>
-            <div>
-              <div className="text-3xl font-black text-white mb-1">Lifetime</div>
-              <div className="text-sm text-white/60 font-semibold">Course Access</div>
-            </div>
+            {[
+              { number: "100%", label: "Assistance Available" },
+              { number: "24/7", label: "Support Available" },
+              { number: "Live", label: "Trading Sessions" },
+              { number: "Lifetime", label: "Course Access" },
+            ].map((item, index) => (
+              <div 
+                key={index}
+                className="text-center group hover:scale-110 transition-transform duration-300 cursor-default animate-zoom-in"
+                style={{ animationDelay: `${index * 0.1 + 0.8}s` }}
+              >
+                <div className="text-3xl font-black text-white mb-1 group-hover:animate-wiggle inline-block">{item.number}</div>
+                <div className="text-sm text-white/90 font-semibold group-hover:text-white transition-colors">{item.label}</div>
+              </div>
+            ))}
           </div>
         </div>
       </div>
