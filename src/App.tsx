@@ -49,19 +49,19 @@ const App = () => {
           <StarsBackground 
             starDensity={0.01}
             allStarsTwinkle={true}
-            twinkleProbability={0.6}
+            twinkleProbability={0.8}
             minTwinkleSpeed={0.5}
             maxTwinkleSpeed={1}
           />
           <ShootingStars
-            minSpeed={1}
-            maxSpeed={5}
+            minSpeed={0.1}
+            maxSpeed={0.2}
             minDelay={800}
             maxDelay={2000}
             starColor="violet"
             trailColor="violet"
             starWidth={80}
-            starHeight={1}
+            starHeight={3}
           />
         </div>
         
