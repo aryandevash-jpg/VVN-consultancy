@@ -47,7 +47,7 @@ const App = () => {
           }}
         >
           <StarsBackground 
-            starDensity={0.01}
+            starDensity={0.05}
             allStarsTwinkle={true}
             twinkleProbability={0.8}
             minTwinkleSpeed={0.5}
