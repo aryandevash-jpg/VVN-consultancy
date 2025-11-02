@@ -49,16 +49,6 @@ const Hero = () => {
       {/* Animated Particle Background */}
       <AnimatedBackground />
       
-      {/* Background Grid with Parallax */}
-      <div
-        className="absolute inset-0 opacity-50"
-        style={{
-          backgroundImage:
-            "linear-gradient(rgba(255,255,255,0.18) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.18) 1px, transparent 1px)",
-          backgroundSize: "50px 50px",
-          transform: `translateY(${mousePosition.y * 0.5}px)`,
-        }}
-      />
 
       {/* Parallax Gradient Orbs */}
       <div 

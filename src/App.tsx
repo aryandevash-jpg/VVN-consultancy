@@ -12,6 +12,8 @@ import ServicesPage from "./pages/Services";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 import CustomCursor from "./components/CustomCursor";
+import { ShootingStars } from "./components/ui/shooting-stars";
+import { StarsBackground } from "./components/ui/stars-background";
 
 const queryClient = new QueryClient();
 
@@ -37,17 +39,31 @@ const App = () => {
         {/* Global Background Layer - black background */}
         <div className="fixed inset-0 bg-black -z-50" />
         
-        {/* Global Tile Background - Static default background */}
+        {/* Shooting Stars and Stars Background - Replaces tile background */}
         <div
           className="fixed inset-0 pointer-events-none"
           style={{
-            backgroundImage:
-              "linear-gradient(rgba(255,255,255,0.25) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.25) 1px, transparent 1px)",
-            backgroundSize: "50px 50px",
-            opacity: 0.7,
-            zIndex: -1,
+            zIndex: -2,
           }}
-        />
+        >
+          <StarsBackground 
+            starDensity={0.01}
+            allStarsTwinkle={true}
+            twinkleProbability={0.6}
+            minTwinkleSpeed={0.5}
+            maxTwinkleSpeed={1}
+          />
+          <ShootingStars
+            minSpeed={15}
+            maxSpeed={25}
+            minDelay={800}
+            maxDelay={2000}
+            starColor="#FFFFFF"
+            trailColor="#FFFFFF"
+            starWidth={8}
+            starHeight={1}
+          />
+        </div>
         
         {/* Global Parallax Gradient Orbs */}
         <div 
