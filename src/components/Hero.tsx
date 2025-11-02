@@ -76,15 +76,40 @@ const Hero = () => {
             </div>
 
             <h1 className="text-5xl lg:text-7xl font-black text-white leading-tight tracking-tight min-h-[180px] lg:min-h-[240px]">
-              {typedText.split(" ").map((word, i) => {
-                if (word === "VVN") {
+              {fullText.split(" ").map((word, i, words) => {
+                // Build the prefix before this word to calculate exact index
+                const prefix = i === 0 ? "" : words.slice(0, i).join(" ") + " ";
+                const wordStartIndex = prefix.length;
+                const wordEndIndex = wordStartIndex + word.length;
+                const spaceIndex = wordEndIndex; // Space comes right after word
+                
+                // Only show this word if typing has reached it
+                if (typedText.length <= wordStartIndex) {
+                  return null;
+                }
+                
+                // Extract the word portion from typedText (up to word length, excluding any space)
+                const endPos = Math.min(wordStartIndex + word.length, typedText.length);
+                let displayWord = typedText.slice(wordStartIndex, endPos);
+                // If we accidentally included a space, remove it (word shouldn't contain spaces)
+                if (displayWord.includes(' ')) {
+                  displayWord = displayWord.split(' ')[0];
+                }
+                
+                // Check if the space after this word has been typed
+                const isLastWord = i === words.length - 1;
+                // If there's a next word and typing has reached it, then the space was typed
+                const nextWordStart = !isLastWord ? words.slice(0, i + 1).join(" ").length + 1 : Infinity;
+                const hasSpaceAfter = !isLastWord && typedText.length > spaceIndex;
+                
+                if (word === "Best") {
                   return (
                     <span 
                       key={i} 
                       className="bg-gradient-to-r from-white via-white/90 to-white/70 bg-clip-text text-transparent animate-gradient-shift bg-[length:200%_auto] inline-block"
-                      style={{ animationDelay: `${i * 0.1}s` }}
+                      style={{ animationDelay: `${i * 0.1}s`, whiteSpace: 'pre' }}
                     >
-                      {word}{" "}
+                      {displayWord}{hasSpaceAfter && " "}
                     </span>
                   );
                 }
@@ -92,9 +117,9 @@ const Hero = () => {
                   <span 
                     key={i}
                     className="animate-text-reveal inline-block"
-                    style={{ animationDelay: `${i * 0.05}s` }}
+                    style={{ animationDelay: `${i * 0.05}s`, whiteSpace: 'pre' }}
                   >
-                    {word}{" "}
+                    {displayWord}{hasSpaceAfter && " "}
                   </span>
                 );
               })}
